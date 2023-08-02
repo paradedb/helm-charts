@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "sync.configMapName" . }}
+  labels:
+    {{- include "sync.labels" . | nindent 4 }}
+data:
+    LOG_LEVEL: INFO
+    ELASTICSEARCH_HOST: {{ printf "%s-headless" .Values.opensearch.masterService }}
+    ELASTICSEARCH_PORT: {{ .Values.opensearch.port |  default "9200" | quote }}
+    ELASTICSEARCH_USER: {{ .Values.opensearch.user }}
+    ELASTICSEARCH_PASSWORD: {{ .Values.opensearch.password }}
+    ELASTICSEARCH_SCHEME:   http{{ if $.Values.opensearch.tls }}s{{ end }}
+    ELASTICSEARCH_USE_SSL: {{ .Values.opensearch.tls | default "false" | quote }}
+    ELASTICSEARCH_VERIFY_CERTS: {{ .Values.opensearch.tls | default "false" | quote }}
+    REDIS_HOST: {{ include "common.names.fullname" .Subcharts.redis }}-http-headless
+    REDIS_PORT: {{ .Values.redis.master.containerPorts.redis | quote }}
+    REDIS_AUTH: {{ .Values.redis.auth.password | quote }}
+    ELASTICSEARCH: "false"
+    OPENSEARCH: "true"

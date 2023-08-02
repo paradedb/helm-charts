@@ -6,7 +6,7 @@ metadata:
     {{- include "search.labels" . | nindent 4 }}
 data:
     API_KEY: retake-test-key
-    OPENSEARCH_HOST: {{ .Values.opensearch.clusterName }}
+    OPENSEARCH_HOST: {{ .Values.opensearch.masterService }}-headless
     OPENSEARCH_PORT: {{ .Values.opensearch.port |  default "9200" | quote }}
     OPENSEARCH_USER: {{ .Values.opensearch.user }}
     OPENSEARCH_PASSWORD: {{ .Values.opensearch.password }}

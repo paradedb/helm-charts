@@ -60,3 +60,10 @@ Create the name of the service account to use
 {{- default "default" .Values.pgsync.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create the name of the configmap to use
+*/}}
+{{- define "sync.configMapName" -}}
+{{- default (include "sync.fullname" .) .Values.pgsync.configMap.name }}
+{{- end }}
