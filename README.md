@@ -36,18 +36,16 @@ git clone https://github.com/getretake/retake.git && cd charts
 helm install retake search --namespace retake
 ```
 
----
-
-Note: Retake Helm Chart will be published to a repository soon!
-
----
+> Note: Retake Helm Chart will be published to a repository soon!
 
 ## Configuration
 
 The Retake Search Product Helm chart can be configured using the values.yaml
 file or by specifying values on the command line during installation.
 
-Check the [values.yaml]() for more information.
+Check the
+[values.yaml](https://github.com/getretake/charts/blob/06da7e5bb48fd1cbb33b96809bfd1f4e005582ef/search/values.yaml)
+for more information.
 
 ## Usage
 
@@ -65,6 +63,11 @@ And you can visualize the port where the Retake API by looking at retake's
 ```bash
 kubectl get services
 ```
+
+Once all pods and services are running, you are ready to start using Retake!
+
+Refer to the [documentation](https://docs.getretake.com/introduction) for more
+information.
 
 ### Expose using an Ingress
 

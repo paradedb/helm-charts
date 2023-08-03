@@ -1,9 +1,10 @@
-## Parameters
+# Parameters
 
 The most common parameters are listed here. For a complete list, refer to the
-`values.yaml` file.
+[values.yaml](https://github.com/getretake/charts/blob/06da7e5bb48fd1cbb33b96809bfd1f4e005582ef/search/values.yaml)
+file.
 
-### Search
+## Search
 
 Retake Search API
 
@@ -23,7 +24,7 @@ Retake Search API
 | `tolerations`                                | Pod tolerations                              | `""`       |
 | `affinity`                                   | Node affinity                                | `""`       |
 
-### Pgsync
+## Pgsync
 
 Retake Pgsync Server
 
@@ -39,23 +40,23 @@ Retake Pgsync Server
 | `tolerations`           | Pod tolerations                                       | `""`        |
 | `affinity`              | Node affinity                                         | `""`        |
 
-### OpenSearch
+## OpenSearch
 
 Opensearch cluster. See the
 [documentation](https://github.com/opensearch-project/helm-charts) for more
 information on this chart.
 
-| Name                       | Description                                                                 | Value                  |
-| -------------------------- | --------------------------------------------------------------------------- | ---------------------- |
-| `opensearch.clusterName`   | Opensearch cluster name                                                     | `"opensearch-cluster"` |
-| `opensearch.nodeGroup`     | Opensearch master group name                                                | `"master"`             |
-| `opensearch.masterService` | Opensearch master node name. Should be set to clusterName + "-" + nodeGroup | `""`                   |
-| `opensearch.user`          | Opensearch user                                                             | `"admin"`              |
-| `opensearch.password`      | Opensearch password                                                         | `"admin"`              |
-| `opensearch.singleNode`    | If true, replicas will be forced to 1                                       | `""`                   |
-| `opensearch.replicas`      | Replicas of Opensearch Cluster                                              | `""`                   |
+| Name                       | Description                                                                 | Value                         |
+| -------------------------- | --------------------------------------------------------------------------- | ----------------------------- |
+| `opensearch.clusterName`   | Opensearch cluster name                                                     | `"opensearch-cluster"`        |
+| `opensearch.nodeGroup`     | Opensearch master group name                                                | `"master"`                    |
+| `opensearch.masterService` | Opensearch master node name. Should be set to clusterName + "-" + nodeGroup | `"opensearch-cluster-master"` |
+| `opensearch.user`          | Opensearch user                                                             | `"admin"`                     |
+| `opensearch.password`      | Opensearch password                                                         | `"admin"`                     |
+| `opensearch.singleNode`    | If true, replicas will be forced to 1                                       | `false`                       |
+| `opensearch.replicas`      | Replicas of Opensearch Cluster                                              | `3`                           |
 
-### Redis
+## Redis
 
 Redis deployment. See the
 [documentation](https://github.com/bitnami/charts/tree/main/bitnami/redis) for
