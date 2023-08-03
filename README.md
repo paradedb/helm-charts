@@ -15,7 +15,7 @@ on Kubernetes.
 
 - A Kubernetes cluster with at least v1.21
 - [Helm](https://helm.sh/)
-- A Postgres database which can be accesed from the cluster
+- A Postgres database that can be accessed from the cluster
 
 ## Installation
 
