@@ -22,7 +22,7 @@ dependencies:
     version: "2.12.0"
     repository: https://opensearch-project.github.io/helm-charts/
   - name: redis
-    version: " 17.14.5"
+    version: "17.14.5"
     repository: https://charts.bitnami.com/bitnami
 maintainers:
   - name: Mauricio Araujo
