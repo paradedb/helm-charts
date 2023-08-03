@@ -37,14 +37,9 @@ spec:
             - name: http
               containerPort: {{ .Values.pgsync.service.port }}
               protocol: TCP
-          # livenessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
-          # readinessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
+          envFrom:
+          - configMapRef:
+              name:  {{ include "sync.configMapName" . }}
           resources:
             {{- toYaml .Values.pgsync.resources | nindent 12 }}
       {{- with .Values.pgsync.nodeSelector }}

@@ -117,6 +117,11 @@ pgsync:
   configMap:
     name: ""
 
+  # Default configmap environment
+  elasticsearchScheme: https
+  elasticsearch: false
+  opensearch: true
+
   security:
     tls: false
 
