@@ -8,21 +8,17 @@ file.
 
 Retake Search API
 
-| Name                                         | Description                                  | Value      |
-| -------------------------------------------- | -------------------------------------------- | ---------- |
-| `replicaCount`                               | Replicas of Retake API                       | `1`        |
-| `nameOverride`                               | Partial name override                        | `""`       |
-| `fullnameOverride`                           | Full name override                           | `""`       |
-| `serviceAccount.create`                      | If a service account should be created       | `true`     |
-| `service.type`                               | Type of service to expose the API            | `NodePort` |
-| `service.port`                               | Port where the API is exposed                | `8000`     |
-| `ingress.enabled`                            | If an ingress should be created              | `false`    |
-| `autoscaling.enabled`                        | If a horizontal autoscaler should be created | `false`    |
-| `autoscaling.minReplicas`                    | Autoscaler minimum number of replicas        | `1`        |
-| `autoscaling.maxReplicas`                    | Autoscaler maximum number of replicas        | `10`       |
-| `autoscaling.targetCPUUtilizationPercentage` | Target CPU utilization for autoscaler        | `80`       |
-| `tolerations`                                | Pod tolerations                              | `""`       |
-| `affinity`                                   | Node affinity                                | `""`       |
+| Name                    | Description                            | Value      |
+| ----------------------- | -------------------------------------- | ---------- |
+| `replicaCount`          | Replicas of Retake API                 | `1`        |
+| `nameOverride`          | Partial name override                  | `""`       |
+| `fullnameOverride`      | Full name override                     | `""`       |
+| `serviceAccount.create` | If a service account should be created | `true`     |
+| `service.type`          | Type of service to expose the API      | `NodePort` |
+| `service.port`          | Port where the API is exposed          | `8000`     |
+| `ingress.enabled`       | If an ingress should be created        | `false`    |
+| `tolerations`           | Pod tolerations                        | `""`       |
+| `affinity`              | Node affinity                          | `""`       |
 
 ## Pgsync
 

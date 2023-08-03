@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "sync.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.pgsync.autoscaling.enabled }}
   replicas: {{ .Values.pgsync.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "sync.selectorLabels" . | nindent 6 }}

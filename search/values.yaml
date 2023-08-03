@@ -11,7 +11,7 @@ search:
     repository: retake/retakesearch
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "v0.1.24"
+    tag: ""
 
   imagePullSecrets: []
   nameOverride: ""
@@ -74,13 +74,6 @@ search:
     #   cpu: 100m
     #   memory: 128Mi
 
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 100
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
-
   nodeSelector: {}
 
   tolerations: []
@@ -99,7 +92,7 @@ pgsync:
     repository: retake/retakesync
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "v0.1.24"
+    tag: ""
 
   imagePullSecrets: []
   nameOverride: ""
@@ -153,13 +146,6 @@ pgsync:
     # requests:
     #   cpu: 100m
     #   memory: 128Mi
-
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 100
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
 
   nodeSelector: {}
 

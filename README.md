@@ -27,10 +27,19 @@ To install the Retake Search on your cluster, follow these steps:
 git clone https://github.com/getretake/retake.git && cd charts
 ```
 
-2. Review and customize the `values.yaml` file to suit your specific deployment
-   needs.
+2. Build dependencies:
 
-3. Install the chart using Helm:
+```bash
+helm dep up
+```
+
+3. Create the `retake` namespace:
+
+```bash
+kubectl create ns retake
+```
+
+4. Install the chart using Helm:
 
 ```bash
 helm install retake search --namespace retake
@@ -89,7 +98,19 @@ For local development, its recommended to use a local Kubernetes cluster like
 git clone https://github.com/getretake/retake.git && cd charts
 ```
 
-2. Install the chart using Helm:
+2. Build dependencies:
+
+```bash
+helm dep up
+```
+
+3. Create the `retake` namespace:
+
+```bash
+kubectl create ns retake
+```
+
+4. Install the chart using Helm:
 
 ```bash
 helm install retake search --namespace retake
