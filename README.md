@@ -96,3 +96,12 @@ helm install retake search --namespace retake
 ```
 
 You are set!
+
+## Contributing
+
+For more information on how to contribute, please see our
+[Contributing Guide](CONTRIBUTING.md).
+
+## License
+
+Retake is [Elastic License 2.0 licensed](LICENSE).
