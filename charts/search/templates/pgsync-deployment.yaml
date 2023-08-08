@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "sync.fullname" . }}
+  labels:
+    {{- include "sync.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.pgsync.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "sync.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.pgsync.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "sync.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.pgsync.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "sync.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.pgsync.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.pgsync.securityContext | nindent 12 }}
+          image: "{{ .Values.pgsync.image.repository }}:{{ .Values.pgsync.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.pgsync.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.pgsync.service.port }}
+              protocol: TCP
+          envFrom:
+          - configMapRef:
+              name:  {{ include "sync.configMapName" . }}
+          resources:
+            {{- toYaml .Values.pgsync.resources | nindent 12 }}
+      {{- with .Values.pgsync.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.pgsync.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.pgsync.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
