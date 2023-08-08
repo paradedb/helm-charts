@@ -1,6 +1,6 @@
 apiVersion: v2
 name: search
-version: "0.0.3"
+version: "0.0.5"
 kubeVersion: ">= 1.21.0"
 description: Retake Search is real-time keyword + semantic neural search infrastructure for developers, built to stay in sync with fast-changing databases.
 type: application
