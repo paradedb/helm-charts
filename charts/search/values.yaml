@@ -5,6 +5,7 @@
 # ---------- Retake Search values ----------
 
 search:
+  enabled: true
   replicaCount: 1
 
   image:
@@ -83,6 +84,7 @@ search:
 # ---------- PGSync values ----------
 
 pgsync:
+  enabled: true
   name: "sync"
   labels:
     - "sync"
@@ -156,6 +158,7 @@ pgsync:
 # ---------- OpenSearch values ----------
 
 opensearch:
+  enabled: true
   clusterName: "opensearch-cluster"
   nodeGroup: "master"
   user: admin
@@ -183,6 +186,7 @@ opensearch:
 # ---------- Redis values ----------
 
 redis:
+  enabled:  true
   master:
     containerPorts:
       redis: 6379
