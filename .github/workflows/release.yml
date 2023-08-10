@@ -12,27 +12,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.merge_commit_sha }}
-          fetch-depth: "0"
-
-      - name: Set default bump
-        run: |
-          if [ "$GITHUB_REF" == "refs/heads/dev" ]; then
-            echo "DEFAULT_BUMP=patch" >> $GITHUB_ENV
-          elif [ "$GITHUB_REF" == "refs/heads/main" ]; then
-            echo "DEFAULT_BUMP=minor" >> $GITHUB_ENV
-          fi
-
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.64.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
-          DEFAULT_BUMP: $DEFAULT_BUMP
-          PRERELEASE: true
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
