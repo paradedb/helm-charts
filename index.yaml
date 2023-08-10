@@ -3,6 +3,50 @@ entries:
   search:
   - apiVersion: v2
     appVersion: 0.1.30
+    created: "2023-08-10T15:39:35.925989986Z"
+    dependencies:
+    - condition: opensearch.enabled
+      name: opensearch
+      repository: https://opensearch-project.github.io/helm-charts/
+      version: 2.12.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.14.5
+    description: Retake Search is real-time keyword + semantic neural search infrastructure
+      for developers, built to stay in sync with fast-changing databases.
+    digest: 395543440a0a85db86274353e4032e830a498cc7e0bb08b1b50149f037058804
+    home: https://github.com/getretake/retake
+    icon: https://github.com/getretake/retake/blob/dev/assets/retake.svg
+    keywords:
+    - postgres
+    - opensearch
+    - pipeline
+    - embeddings
+    - vectors
+    - neuralsearch
+    - change-data-capture
+    - mlops
+    kubeVersion: '>= 1.21.0'
+    maintainers:
+    - email: mauricio.araujo@proton.me
+      name: Mauricio Araujo
+      url: https://github.com/MauAraujo
+    - email: ming.ying.nyc@gmail.com
+      name: Ming Ying
+      url: https://github.com/rebasedming
+    - email: ming.ying.nyc@gmail.com
+      name: Philippe Noël
+      url: https://github.com/philippemnoel
+    name: search
+    sources:
+    - https://github.com/getretake/charts
+    type: application
+    urls:
+    - https://github.com/getretake/helm-charts/releases/download/search-0.0.6/search-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v2
+    appVersion: 0.1.30
     created: "2023-08-08T14:52:54.197328557-06:00"
     dependencies:
     - name: opensearch
@@ -43,4 +87,4 @@ entries:
     urls:
     - search-0.0.5.tgz
     version: 0.0.5
-generated: "2023-08-08T14:52:54.197333186-06:00"
+generated: "2023-08-10T15:39:35.926003986Z"
