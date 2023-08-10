@@ -5,6 +5,7 @@
 # ---------- Retake Search values ----------
 
 search:
+  enabled: true
   replicaCount: 1
 
   image:
