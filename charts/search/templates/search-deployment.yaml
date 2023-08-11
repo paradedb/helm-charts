@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "search.fullname" . }}
+  namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "search.labels" . | nindent 4 }}
 spec:
@@ -39,6 +40,12 @@ spec:
           envFrom:
           - configMapRef:
               name:  {{ include "search.configMapName" . }}
+          env:
+          - name: API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "search.fullname" . }}-api-key
+                key: apiKey
           resources:
             {{- toYaml .Values.search.resources | nindent 12 }}
       {{- with .Values.search.nodeSelector }}

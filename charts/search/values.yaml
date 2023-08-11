@@ -43,6 +43,11 @@ search:
     # runAsNonRoot: true
     # runAsUser: 1000
 
+  security:
+    enabled: true
+    apiKey: retake-test-key
+    existingSecret: ""
+
   service:
     type: NodePort
     port: 8000

@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "sync.fullname" . }}
+  namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "sync.labels" . | nindent 4 }}
 spec:
