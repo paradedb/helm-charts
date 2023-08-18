@@ -86,9 +86,9 @@ search:
 
   affinity: {}
 
-# ---------- PGSync values ----------
+# ---------- Sync values ----------
 
-pgsync:
+sync:
   enabled: true
   name: "sync"
   labels:
@@ -162,39 +162,74 @@ pgsync:
 
 # ---------- OpenSearch values ----------
 
-opensearch:
+opensearchCluster:
   enabled: true
-  clusterName: "opensearch-cluster"
-  nodeGroup: "master"
-  user: admin
-  password: admin
+  installOperator: true
 
-  # If discovery.type in the opensearch configuration is set to "single-node",
-  # this should be set to "true"
-  # If "true", replicas will be forced to 1
-  singleNode: false
-
-  # The service that non master groups will try to connect to when joining the cluster
-  # This should be set to clusterName + "-" + nodeGroup for your master group
-  masterService: "opensearch-cluster-master"
-
-  # OpenSearch roles that will be applied to this nodeGroup
-  # These will be set as environment variable "node.roles". E.g. node.roles=master,ingest,data,remote_cluster_client
-  roles:
-    - master
-    - ingest
-    - data
-    - remote_cluster_client
-
-  replicas: 3
-
-# ---------- Redis values ----------
-
-redis:
-  enabled:  true
-  master:
-    containerPorts:
-      redis: 6379
-  auth:
-    enabled: true
-    password: redis
+#  bootstrap:
+#    Configure settings for the bootstrap pod
+  general:
+    httpPort: "9200"
+    version: 2.9.0
+    serviceName: "core-cluster"
+    drainDataNodes: true
+    setVMMaxMapCount: true
+    additionalConfig:
+      plugins.ml_commons.model_access_control_enabled: "true"
+#    securityContext:
+#       Specify container security context for OpenSearch pods
+#    podSecurityContext:
+#       Specify pod security context for OpenSearch pods
+  dashboards:
+    enable: false
+    replicas: 1
+    version: 2.9.0
+#        securityContext:
+#           Specify container security context for OSD pods
+#        podSecurityContext:
+#           Specify pod security context for OSD pods
+    resources:
+      requests:
+        memory: "1Gi"
+        cpu: "500m"
+      limits:
+        memory: "1Gi"
+        cpu: "500m"
+  nodePools:
+    - component: nodes
+      diskSize: "30Gi"
+      jvm: -Xmx1024M -Xms1024M
+      replicas: 3
+      roles:
+        - "cluster_manager"
+        - "data"
+      resources:
+        requests:
+          memory: "2Gi"
+          cpu: "500m"
+        limits:
+          memory: "2Gi"
+          cpu: "500m"
+    - component: ml-nodes
+      diskSize: "30Gi"
+      jvm: -Xmx1024M -Xms1024M
+      replicas: 1
+      roles:
+        - "ml"
+      resources:
+        requests:
+          memory: "2Gi"
+          cpu: "500m"
+        limits:
+          memory: "2Gi"
+          cpu: "500m"
+  security:
+    user: admin
+    password: admin
+    tls:
+      enabled: true
+      transport:
+        generate: true
+        perNode: true
+      http:
+        generate: true

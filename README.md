@@ -17,35 +17,26 @@ on Kubernetes.
 - [Helm](https://helm.sh/)
 - A Postgres database that can be accessed from the cluster
 
-## Installation
+## Usage
 
-To install the Retake Search on your cluster, follow these steps:
+[Helm](https://helm.sh) must be installed to use the charts. Please refer to
+Helm's [documentation](https://helm.sh/docs) to get started.
 
-1. Clone this repository:
+Once Helm has been set up correctly, add the repo as follows:
 
-```bash
-git clone https://github.com/getretake/retake.git && cd charts
-```
+    helm repo add retake https://getretake.github.io/helm-charts
 
-2. Build dependencies:
+If you had already added this repo earlier, run `helm repo update` to retrieve
+the latest versions of the packages. You can then run `helm search repo retake`
+to see the charts.
 
-```bash
-helm dep up
-```
+To install the search chart:
 
-3. Create the `retake` namespace:
+    helm install my-search retake/search
 
-```bash
-kubectl create ns retake
-```
+To uninstall the chart:
 
-4. Install the chart using Helm:
-
-```bash
-helm install retake search --namespace retake
-```
-
-> Note: Retake Helm Chart will be published to a repository soon!
+    helm delete my-search
 
 ## Configuration
 
@@ -56,33 +47,10 @@ Check the
 [values.yaml](https://github.com/getretake/charts/blob/06da7e5bb48fd1cbb33b96809bfd1f4e005582ef/search/values.yaml)
 for more information.
 
-## Usage
-
-By default, the chart exposes retake search as a `NodePort` on your cluster. You
-can access the port using the ip address of any of your nodes. To list the ip
-adresses run:
-
-```bash
-kubectl get nodes -o wide
-```
-
-And you can visualize the port where the Retake API by looking at retake's
-`NodePort` service with:
-
-```bash
-kubectl get services
-```
-
-Once all pods and services are running, you are ready to start using Retake!
-
-Refer to the [documentation](https://docs.getretake.com/introduction) for more
-information.
-
 ### Expose using an Ingress
 
 If you wish to use an `Ingress` for exposing the API, you can set the property
-`ingress.enabled` to `true`. Note that the chart does not provide an Ingress
-Controller yet, so an
+`ingress.enabled` to `true`. Note that an
 [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
 must be installed in your cluster for the `Ingress` resource to work.
 
@@ -98,19 +66,25 @@ For local development, its recommended to use a local Kubernetes cluster like
 git clone https://github.com/getretake/retake.git && cd charts
 ```
 
-2. Build dependencies:
+2. Change into the charts directory:
+
+```bash
+cd helm-charts/charts
+```
+
+3. Build dependencies:
 
 ```bash
 helm dep up
 ```
 
-3. Create the `retake` namespace:
+4. Create the `retake` namespace:
 
 ```bash
 kubectl create ns retake
 ```
 
-4. Install the chart using Helm:
+5. Install the chart using Helm:
 
 ```bash
 helm install retake search --namespace retake

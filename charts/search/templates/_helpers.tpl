@@ -71,10 +71,10 @@ Create the name of the configmap to use
 
 
 {{/*
-Expand the name of the chart for Retake PGSync.
+Expand the name of the chart for Retake Sync.
 */}}
 {{- define "sync.name" -}}
-{{- default "pgsync" .Values.pgsync.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- default "sync" .Values.sync.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
@@ -83,10 +83,10 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 If release name contains chart name it will be used as a full name.
 */}}
 {{- define "sync.fullname" -}}
-{{- if .Values.pgsync.fullnameOverride }}
-{{- .Values.pgsync.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- if .Values.sync.fullnameOverride }}
+{{- .Values.sync.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
-{{- $name := default "pgsync" .Values.pgsync.nameOverride }}
+{{- $name := default "sync" .Values.sync.nameOverride }}
 {{- if contains $name .Release.Name }}
 {{- .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -126,10 +126,10 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 Create the name of the service account to use
 */}}
 {{- define "sync.serviceAccountName" -}}
-{{- if .Values.pgsync.serviceAccount.create }}
-{{- default (include "sync.fullname" .) .Values.pgsync.serviceAccount.name }}
+{{- if .Values.sync.serviceAccount.create }}
+{{- default (include "sync.fullname" .) .Values.sync.serviceAccount.name }}
 {{- else }}
-{{- default "default" .Values.pgsync.serviceAccount.name }}
+{{- default "default" .Values.sync.serviceAccount.name }}
 {{- end }}
 {{- end }}
 
@@ -137,5 +137,5 @@ Create the name of the service account to use
 Create the name of the configmap to use
 */}}
 {{- define "sync.configMapName" -}}
-{{- default (include "sync.fullname" .) .Values.pgsync.configMap.name }}
+{{- default (include "sync.fullname" .) .Values.sync.configMap.name }}
 {{- end }}

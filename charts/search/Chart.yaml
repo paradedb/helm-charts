@@ -1,10 +1,10 @@
 apiVersion: v2
 name: search
-version: "0.0.7"
+version: "0.1.0"
 kubeVersion: ">= 1.21.0"
 description: Retake Search is real-time keyword + semantic neural search infrastructure for developers, built to stay in sync with fast-changing databases.
 type: application
-appVersion: "0.1.30"
+appVersion: "0.1.35"
 keywords:
   - postgres
   - opensearch
@@ -18,10 +18,10 @@ home: https://github.com/getretake/retake
 sources:
   - https://github.com/getretake/charts
 dependencies:
-  - name: opensearch
-    version: "2.12.0"
-    repository: https://opensearch-project.github.io/helm-charts/
-    condition: opensearch.enabled
+  - name: opensearch-operator
+    version: "2.3.1"
+    repository: https://opster.github.io/opensearch-k8s-operator/
+    condition: opensearchCluster.installOperator
   - name: redis
     version: "17.14.5"
     repository: https://charts.bitnami.com/bitnami

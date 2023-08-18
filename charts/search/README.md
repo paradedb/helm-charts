@@ -20,37 +20,39 @@ Retake Search API
 | `tolerations`           | Pod tolerations                        | `""`       |
 | `affinity`              | Node affinity                          | `""`       |
 
-## Pgsync
+## Sync
 
-Retake Pgsync Server
+Retake Sync Server
 
-| Name                    | Description                                           | Value       |
-| ----------------------- | ----------------------------------------------------- | ----------- |
-| `replicaCount`          | Replicas of Retake pgsync server                      | `1`         |
-| `nameOverride`          | Partial name override                                 | `""`        |
-| `fullnameOverride`      | Full name override                                    | `""`        |
-| `serviceAccount.create` | If a service account should be created                | `true`      |
-| `service.type`          | Type of service to expose the API                     | `ClusterIP` |
-| `service.port`          | Port where the API is exposed                         | `7433`      |
-| `security.tls`          | Enables communication over TLS with the pgsync server | `false`     |
-| `tolerations`           | Pod tolerations                                       | `""`        |
-| `affinity`              | Node affinity                                         | `""`        |
+| Name                    | Description                                         | Value       |
+| ----------------------- | --------------------------------------------------- | ----------- |
+| `replicaCount`          | Replicas of Retake sync server                      | `1`         |
+| `nameOverride`          | Partial name override                               | `""`        |
+| `fullnameOverride`      | Full name override                                  | `""`        |
+| `serviceAccount.create` | If a service account should be created              | `true`      |
+| `service.type`          | Type of service to expose the API                   | `ClusterIP` |
+| `service.port`          | Port where the API is exposed                       | `7433`      |
+| `security.tls`          | Enables communication over TLS with the sync server | `false`     |
+| `tolerations`           | Pod tolerations                                     | `""`        |
+| `affinity`              | Node affinity                                       | `""`        |
 
 ## OpenSearch
 
-Opensearch cluster. See the
-[documentation](https://github.com/opensearch-project/helm-charts) for more
-information on this chart.
+The OpenSearch cluster is deployed using the OpenSearch Operator. See the
+[documentation](https://github.com/Opster/opensearch-k8s-operator) for more
+information on installing and using the operator.
 
-| Name                       | Description                                                                 | Value                         |
-| -------------------------- | --------------------------------------------------------------------------- | ----------------------------- |
-| `opensearch.clusterName`   | Opensearch cluster name                                                     | `"opensearch-cluster"`        |
-| `opensearch.nodeGroup`     | Opensearch master group name                                                | `"master"`                    |
-| `opensearch.masterService` | Opensearch master node name. Should be set to clusterName + "-" + nodeGroup | `"opensearch-cluster-master"` |
-| `opensearch.user`          | Opensearch user                                                             | `"admin"`                     |
-| `opensearch.password`      | Opensearch password                                                         | `"admin"`                     |
-| `opensearch.singleNode`    | If true, replicas will be forced to 1                                       | `false`                       |
-| `opensearch.replicas`      | Replicas of Opensearch Cluster                                              | `3`                           |
+| Name                                                | Description                                                           | Value            |
+| --------------------------------------------------- | --------------------------------------------------------------------- | ---------------- |
+| `opensearchCluster.enabled`                         | If the OpenSearch cluster is enabled                                  | `true`           |
+| `opensearchCluster.installOperator`                 | If the OpenSearch Operator should be installed                        | `true`           |
+| `opensearchCluster.general.httpPort`                | Port used to connect to the cluster                                   | `9200`           |
+| `opensearchCluster.general.version`                 | OpenSearch version to use                                             | `2.9.0`          |
+| `opensearchCluster.general.serviceName`             | Name of the service where the cluster will be exposed                 | `"core-cluster"` |
+| `opensearchCluster.dashboards.enabled`              | If the OpenSearch dashboard is enabled                                | `false`          |
+| `opensearchCluster.security.tls`                    | If TLS is enabled on the cluster. Used by the search and sync servers | `true`           |
+| `opensearchCluster.security.tls.transport.generate` | Indicates if certificates are generated and managed by the operator   | `true`           |
+| `opensearchCluster.security.tls.transport.perNode`  | If set, a certificate will be generated for each node in the cluster  | `true`           |
 
 ## Redis
 

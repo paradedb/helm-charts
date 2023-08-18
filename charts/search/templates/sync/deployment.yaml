@@ -1,4 +1,4 @@
-{{- if .Values.pgsync.enabled }}
+{{- if .Values.sync.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -7,50 +7,50 @@ metadata:
   labels:
     {{- include "sync.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.pgsync.replicaCount }}
+  replicas: {{ .Values.sync.replicaCount }}
   selector:
     matchLabels:
       {{- include "sync.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.pgsync.podAnnotations }}
+      {{- with .Values.sync.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
         {{- include "sync.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.pgsync.imagePullSecrets }}
+      {{- with .Values.sync.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "sync.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.pgsync.podSecurityContext | nindent 8 }}
+        {{- toYaml .Values.sync.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.pgsync.securityContext | nindent 12 }}
-          image: "{{ .Values.pgsync.image.repository }}:{{ .Values.pgsync.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.pgsync.image.pullPolicy }}
+            {{- toYaml .Values.sync.securityContext | nindent 12 }}
+          image: "{{ .Values.sync.image.repository }}:{{ .Values.sync.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.sync.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.pgsync.service.port }}
+              containerPort: {{ .Values.sync.service.port }}
               protocol: TCP
           envFrom:
           - configMapRef:
               name:  {{ include "sync.configMapName" . }}
           resources:
-            {{- toYaml .Values.pgsync.resources | nindent 12 }}
-      {{- with .Values.pgsync.nodeSelector }}
+            {{- toYaml .Values.sync.resources | nindent 12 }}
+      {{- with .Values.sync.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.pgsync.affinity }}
+      {{- with .Values.sync.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.pgsync.tolerations }}
+      {{- with .Values.sync.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
