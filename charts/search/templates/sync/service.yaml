@@ -1,4 +1,4 @@
-{{- if .Values.pgsync.enabled }}
+{{- if .Values.sync.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -7,9 +7,9 @@ metadata:
   labels:
     {{- include "sync.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.pgsync.service.type }}
+  type: {{ .Values.sync.service.type }}
   ports:
-    - port: {{ .Values.pgsync.service.port }}
+    - port: {{ .Values.sync.service.port }}
       targetPort: http
       protocol: TCP
       name: http
