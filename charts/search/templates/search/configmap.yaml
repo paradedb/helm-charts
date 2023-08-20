@@ -12,7 +12,7 @@ data:
     OPENSEARCH_PORT: {{ .Values.opensearchCluster.general.httpPort |  default "9200" | quote }}
     OPENSEARCH_USER: {{ .Values.opensearchCluster.security.user }}
     OPENSEARCH_PASSWORD: {{ .Values.opensearchCluster.security.password }}
-    OPENSEARCH_USE_TLS: {{ .Values.opensearchCluster.security.tls.enabled | default "true" | quote }}
+    OPENSEARCH_VERIFY_CERTS: {{ .Values.opensearchCluster.security.tls.verifyCerts | default "false" | quote }}
     PGSYNC_HOST: {{ include "sync.fullname" . }}
     PGSYNC_PORT: {{ .Values.sync.service.port | default "7433" | quote }}
     PGSYNC_SSL_ENABLED: {{ .Values.sync.security.tls | default "false" | quote }}
