@@ -3,7 +3,6 @@
 # Declare variables to be passed into your templates.
 
 postgresVersion: 15
-imagePostgres: paradedb/paradedb
 installOperator: true
 patroni:
     dynamicConfiguration:
