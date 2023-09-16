@@ -3,8 +3,4 @@
 # Declare variables to be passed into your templates.
 
 postgresVersion: 15
-imagePostgres: docker-paradedb
-
-# TODO: Remove once image is public
-imagePullSecrets:
-  - name: "dockerhub-secret"
+imagePostgres: paradedb/paradedb
