@@ -1,0 +1,10 @@
+# Default values for paradedb.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+postgresVersion: 15
+imagePostgres: docker-paradedb
+
+# TODO: Remove once image is public
+imagePullSecrets:
+  - name: "dockerhub-secret"
