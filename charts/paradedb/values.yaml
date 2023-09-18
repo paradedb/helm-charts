@@ -4,3 +4,4 @@
 
 postgresVersion: 15
 imagePostgres: paradedb/paradedb
+installOperator: true
