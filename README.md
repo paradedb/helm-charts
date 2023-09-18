@@ -1,14 +1,24 @@
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/paradedb/paradedb/dev/docs/logo/readme.svg" alt="ParadeDB" width="368px"></a>
+<br>
+</h1>
+
 <p align="center">
-  <img src="https://raw.githubusercontent.com/getretake/retake/dev/assets/retake.svg" alt="Retake" width="125px"></a>
+    <b>PostgreSQL for Search</b> <br />
 </p>
 
-<h1 align="center">
-    <b>Retake</b>
-</h1>
+<h3 align="center">
+  <a href="https://paradedb.com">Website</a> &bull;
+  <a href="https://docs.paradedb.com">Documentation</a> &bull;
+  <a href="https://paradedb.com/blog">Blog</a> &bull;
+  <a href="https://join.slack.com/t/paradedbcommunity/shared_invite/zt-217mordsh-ielS6BiZf7VW3rqKBFgAlQ">Community</a>
+</h3>
+
+---
 
 # Helm Chart
 
-This repository contains the Helm chart for deploying and managing Retake Search
+This repository contains the Helm chart for deploying and managing ParadeDB
 on Kubernetes.
 
 ## Prerequisites
@@ -24,23 +34,23 @@ Helm's [documentation](https://helm.sh/docs) to get started.
 
 Once Helm has been set up correctly, add the repo as follows:
 
-    helm repo add retake https://getretake.github.io/helm-charts
+    helm repo add paradedb https://paradedb.github.io/helm-charts
 
 If you had already added this repo earlier, run `helm repo update` to retrieve
-the latest versions of the packages. You can then run `helm search repo retake`
+the latest versions of the packages. You can then run `helm search repo paradedb`
 to see the charts.
 
-To install the search chart:
+To install the paradedb chart:
 
-    helm install my-search retake/search
+    helm install my-db paradedb/paradedb
 
 To uninstall the chart:
 
-    helm delete my-search
+    helm delete my-db
 
 ## Configuration
 
-The Retake Search Product Helm chart can be configured using the values.yaml
+The ParadeDB Helm chart can be configured using the values.yaml
 file or by specifying values on the command line during installation.
 
 Check the
@@ -63,7 +73,7 @@ For local development, its recommended to use a local Kubernetes cluster like
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/getretake/retake.git && cd charts
+git clone https://github.com/paradedb/helm-charts && cd charts
 ```
 
 2. Change into the charts directory:
@@ -78,16 +88,10 @@ cd helm-charts/charts
 helm dep up
 ```
 
-4. Create the `retake` namespace:
+4. Install the chart using Helm:
 
 ```bash
-kubectl create ns retake
-```
-
-5. Install the chart using Helm:
-
-```bash
-helm install retake search --namespace retake
+helm install paradedb paradedb --namespace paradedb --create-namespace
 ```
 
 You are set!
@@ -99,4 +103,4 @@ For more information on how to contribute, please see our
 
 ## License
 
-Retake is [Elastic License 2.0 licensed](LICENSE).
+ParadeDB is [Elastic License 2.0 licensed](LICENSE).
