@@ -11,6 +11,8 @@ patroni:
         pg_hba:
         - host all all 0.0.0.0/0 scram-sha-256
         - host all all ::1/128 scram-sha-256
-databaseInitSQL:
-  key: init.sql
-  name: init-sql
+users:
+  - name: paradedb
+    databases:
+    - paradedb
+    options: "SUPERUSER"
