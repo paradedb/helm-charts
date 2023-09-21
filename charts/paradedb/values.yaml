@@ -5,3 +5,14 @@
 postgresVersion: 15
 imagePostgres: paradedb/paradedb
 installOperator: true
+patroni:
+    dynamicConfiguration:
+      postgresql:
+        pg_hba:
+        - host all all 0.0.0.0/0 scram-sha-256
+        - host all all ::1/128 scram-sha-256
+users:
+  - name: paradedb
+    databases:
+    - paradedb
+    options: "SUPERUSER"
