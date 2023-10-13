@@ -12,6 +12,9 @@ patroni:
         - host all all ::1/128 scram-sha-256
 users:
   - name: paradedb
+    password:
+      type: AlphaNumeric
     databases:
     - paradedb
     options: "SUPERUSER"
+  
