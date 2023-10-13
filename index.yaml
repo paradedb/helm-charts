@@ -3,6 +3,21 @@ entries:
   paradedb:
   - apiVersion: v2
     appVersion: 0.2.19
+    created: "2023-10-13T05:44:38.120651776Z"
+    dependencies:
+    - condition: installOperator
+      name: pgo
+      repository: oci://registry.developers.crunchydata.com/crunchydata
+      version: 5.4.1
+    description: A Helm chart for deploying ParadeDB
+    digest: 3a72c8bed4d607ab7ffdf5b3b6219acc15fd06f917cd2aca3a4813eb46cbb519
+    name: paradedb
+    type: application
+    urls:
+    - https://github.com/paradedb/helm-charts/releases/download/paradedb-0.3.2/paradedb-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
+    appVersion: 0.2.19
     created: "2023-10-11T20:06:18.447871825Z"
     dependencies:
     - condition: installOperator
@@ -280,4 +295,4 @@ entries:
     urls:
     - search-0.0.5.tgz
     version: 0.0.5
-generated: "2023-10-11T20:06:18.447894225Z"
+generated: "2023-10-13T05:44:38.120676276Z"
