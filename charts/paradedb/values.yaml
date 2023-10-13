@@ -17,4 +17,3 @@ users:
     databases:
     - paradedb
     options: "SUPERUSER"
-  
