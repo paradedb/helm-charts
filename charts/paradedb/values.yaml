@@ -2,6 +2,63 @@
 # the documentation:
 #    https://access.crunchydata.com/documentation/postgres-operator/v5/
 
+############
+# Operator #
+############
+
+# controllerImages are used to run the operator's controllers.
+# The cluster image defined below runs the PostgresCluster and PGUpgrade controllers.
+# controllerImages:
+#   cluster: registry.developers.crunchydata.com/crunchydata/postgres-operator:ubi8-5.4.2-0
+
+# relatedImages are used when an image is omitted from PostgresCluster or PGUpgrade specs.
+pgo:
+  relatedImages:
+    postgres_15:
+      image: paradedb/paradedb
+#   postgres_15_gis_3.3:
+#     image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.4-3.3-0
+#   postgres_14:
+#     image: paradedb/paradedb
+#   postgres_14_gis_3.1:
+#     image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-14.9-3.1-0
+#   postgres_14_gis_3.2:
+#     image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-14.9-3.2-0
+#   postgres_14_gis_3.3:
+#     image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-14.9-3.3-0
+#   pgadmin:
+#     image: registry.developers.crunchydata.com/crunchydata/crunchy-pgadmin4:ubi8-4.30-17
+#   pgbackrest:
+#     image: registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.47-0
+#   pgbouncer:
+#     image: registry.developers.crunchydata.com/crunchydata/crunchy-pgbouncer:ubi8-1.19-4
+#   pgexporter:
+#     image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres-exporter:ubi8-5.4.2-0
+#   pgupgrade:
+#     image: registry.developers.crunchydata.com/crunchydata/crunchy-upgrade:ubi8-5.4.2-0
+
+# singleNamespace controls where PGO watches for PostgresClusters. When false,
+# PGO watches for and responds to PostgresClusters in all namespaces. When true,
+# PGO watches only the namespace in which it is installed.
+# singleNamespace: false
+
+# debug allows you to enable or disable the "debug" level of logging.
+# debug: true
+
+# imagePullSecretNames is a list of secret names to use for pulling controller images.
+# More info: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
+# imagePullSecretNames: []
+
+# Resource configuration of the PostgresCluster and PGUpgrade controllers.
+# resources:
+#   controller: {}
+
+# Define custom labels for PGO pods
+# Note: Defining labels that overlap with any Crunchy Data label, for example,
+# postgres-operator.crunchydata.com, will cause an error
+# customPodLabels:
+#  example.com: custom-label
+
 ###########
 # General #
 ###########
@@ -49,7 +106,7 @@ installOperator: true
 # below value. "postgresVersion" needs to match the version of Postgres that is
 # used here. If using the GIS-enabled Postgres image, you need to ensure
 # "postGISVersion" matches the version of PostGIS used.
-imagePostgres: paradedb/paradedb
+# imagePostgres: paradedb/paradedb
 
 # imagePgBackRest is the pgBackRest backup utility image. This defaults to the
 # below value.
