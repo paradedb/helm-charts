@@ -18,8 +18,8 @@
 
 # Helm Chart
 
-This repository contains the Helm chart for deploying and managing ParadeDB
-on Kubernetes.
+This repository contains the Helm chart for deploying and managing ParadeDB on
+Kubernetes.
 
 ## Prerequisites
 
@@ -37,8 +37,8 @@ Once Helm has been set up correctly, add the repo as follows:
     helm repo add paradedb https://paradedb.github.io/helm-charts
 
 If you had already added this repo earlier, run `helm repo update` to retrieve
-the latest versions of the packages. You can then run `helm search repo paradedb`
-to see the charts.
+the latest versions of the packages. You can then run
+`helm search repo paradedb` to see the charts.
 
 To install the paradedb chart:
 
@@ -50,11 +50,11 @@ To uninstall the chart:
 
 ## Configuration
 
-The ParadeDB Helm chart can be configured using the values.yaml
-file or by specifying values on the command line during installation.
+The ParadeDB Helm chart can be configured using the values.yaml file or by
+specifying values on the command line during installation.
 
 Check the
-[values.yaml](https://github.com/getretake/charts/blob/06da7e5bb48fd1cbb33b96809bfd1f4e005582ef/search/values.yaml)
+[values.yaml](https://github.com/paradedb/helm-charts/blob/main/charts/paradedb/values.yaml)
 for more information.
 
 ### Expose using an Ingress
