@@ -15,7 +15,7 @@
 pgo:
   relatedImages:
     postgres_15:
-      image: paradedb/paradedb
+      image: paradedb/paradedb-cloud
 #   postgres_15_gis_3.3:
 #     image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres-gis:ubi8-15.4-3.3-0
 #   postgres_14:
@@ -221,9 +221,9 @@ users:
 
 # databaseInitSQL references a ConfigMap that contains a SQL file that should be
 # run a cluster bootstrap.
-# databaseInitSQL:
-#   name: bootstrap-sql
-#   key: bootstrap.sql
+databaseInitSQL:
+  name: bootstrap-sql
+  key: bootstrap.sql
 
 # standby sets whether to run this as a standby cluster. Setting "enabled" to
 # "true" enables the standby cluster while "repoName" points to a pgBackRest
