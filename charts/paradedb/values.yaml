@@ -71,8 +71,8 @@ cluster:
     initdb:
       database: paradedb
       owner: paradedb
-      secret:
-        name: cluster-example-app-user
+      # secret:
+      #   name: cluster-example-app-user
       postInitApplicationSQL:
         - CREATE EXTENSION IF NOT EXISTS pg_bm25 CASCADE;
         - CREATE EXTENSION IF NOT EXISTS pg_search CASCADE;
