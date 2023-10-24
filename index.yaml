@@ -2,6 +2,21 @@ apiVersion: v1
 entries:
   paradedb:
   - apiVersion: v2
+    appVersion: 0.2.21
+    created: "2023-10-24T21:10:19.43070359Z"
+    dependencies:
+    - condition: installOperator
+      name: cloudnative-pg
+      repository: https://cloudnative-pg.github.io/charts
+      version: 0.19.0
+    description: A Helm chart for deploying ParadeDB
+    digest: 3ad5628d31f7a8730211351b0bdc0779b3a8dd4fb06bcab2b5a85481fc4b2c91
+    name: paradedb
+    type: application
+    urls:
+    - https://github.com/paradedb/helm-charts/releases/download/paradedb-0.4.0/paradedb-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
     appVersion: 0.2.19
     created: "2023-10-16T22:49:28.072067225Z"
     dependencies:
@@ -310,4 +325,4 @@ entries:
     urls:
     - search-0.0.5.tgz
     version: 0.0.5
-generated: "2023-10-16T22:49:28.072097225Z"
+generated: "2023-10-24T21:10:19.430742491Z"
