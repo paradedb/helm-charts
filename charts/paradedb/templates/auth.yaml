@@ -1,3 +1,4 @@
+{{- if .Values.auth }}
 {{- if .Values.auth.appUserCredentials }}
 apiVersion: v1
 data:
@@ -34,4 +35,5 @@ metadata:
 data:
   ACCESS_KEY_ID: {{ .Values.auth.backupCredentials.accessKeyId }}
   ACCESS_SECRET_KEY: {{ .Values.auth.backupCredentials.accessSecretKey }}
+{{- end }}
 {{- end }}

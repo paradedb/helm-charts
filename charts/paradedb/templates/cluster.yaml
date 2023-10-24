@@ -43,7 +43,7 @@ spec:
     initdb:
       database: {{ .Values.cluster.bootstrap.initdb.database }}
       owner: {{ .Values.cluster.bootstrap.initdb.owner }}
-{{- if .Values.auth.appUserCredentials }}
+{{- if and .Values.auth .Values.auth.appUserCredentials }}
       secret:
         name: {{ .Values.auth.appUserCredentials.name }}
 {{- end }}
