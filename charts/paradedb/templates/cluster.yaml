@@ -11,6 +11,9 @@ spec:
 {{- if .Values.cluster.imageName }}
   imageName: {{ .Values.cluster.imageName }}
 {{- end }}
+{{- if .Values.cluster.imageName }}
+  imagePullPolicy: {{ .Values.cluster.imagePullPolicy }}
+{{- end }}
   instances: {{ .Values.cluster.instances }}
 {{- if .Values.cluster.certificates }}
   certificates: 
@@ -87,6 +90,11 @@ spec:
     limits:
       memory: {{ .Values.cluster.resources.limits.memory }}
       cpu: {{ .Values.cluster.resources.limits.cpu }}
+{{- end }}
+
+{{- if .Values.cluster.monitoring }}
+  monitoring:
+{{ toYaml .Values.cluster.monitoring | indent 4 }}
 {{- end }}
 
 {{- if .Values.cluster.affinity }}
