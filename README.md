@@ -103,4 +103,4 @@ For more information on how to contribute, please see our
 
 ## License
 
-ParadeDB is [Elastic License 2.0 licensed](LICENSE).
+ParadeDB is licensed under the [GNU Affero General Public License v3.0](LICENSE).
