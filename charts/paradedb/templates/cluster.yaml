@@ -11,6 +11,9 @@ spec:
 {{- if .Values.cluster.imageName }}
   imageName: {{ .Values.cluster.imageName }}
 {{- end }}
+{{- if .Values.cluster.imageName }}
+  imagePullPolicy: {{ .Values.cluster.imagePullPolicy }}
+{{- end }}
   instances: {{ .Values.cluster.instances }}
 {{- if .Values.cluster.certificates }}
   certificates: 

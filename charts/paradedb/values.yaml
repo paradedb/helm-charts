@@ -38,7 +38,9 @@ cluster:
   # Description for the cluster
   description: "Cluster to run ParadeDB"
   # Image for the PostgreSQL instance
-  imageName: paradedb/paradedb:15-0.2.21
+  imageName: paradedb/paradedb:15-v0.2.25
+  # Image pull policy
+  imagePullPolicy: IfNotPresent
   # Number of instances
   instances: 3
   # Start delay for the instances
