@@ -25,7 +25,6 @@ Kubernetes.
 
 - A Kubernetes cluster with at least v1.21
 - [Helm](https://helm.sh/)
-- A Postgres database that can be accessed from the cluster
 
 ## Usage
 
@@ -56,13 +55,6 @@ specifying values on the command line during installation.
 Check the
 [values.yaml](https://github.com/paradedb/helm-charts/blob/main/charts/paradedb/values.yaml)
 for more information.
-
-### Expose using an Ingress
-
-If you wish to use an `Ingress` for exposing the API, you can set the property
-`ingress.enabled` to `true`. Note that an
-[Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
-must be installed in your cluster for the `Ingress` resource to work.
 
 ## Development
 
@@ -103,4 +95,5 @@ For more information on how to contribute, please see our
 
 ## License
 
-ParadeDB is licensed under the [GNU Affero General Public License v3.0](LICENSE).
+ParadeDB is licensed under the
+[GNU Affero General Public License v3.0](LICENSE).
