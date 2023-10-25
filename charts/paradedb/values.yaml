@@ -38,7 +38,7 @@ cluster:
   # Description for the cluster
   description: "Cluster to run ParadeDB"
   # Image for the PostgreSQL instance
-  imageName: docker-paradedb:15-0.2.21
+  imageName: paradedb/paradedb:15-0.2.21
   # Number of instances
   instances: 3
   # Start delay for the instances
@@ -134,6 +134,16 @@ cluster:
     limits:
       memory: "1Gi"
       cpu: "2"
+
+  # Certificates
+  # certificates:
+    # Server certificates
+    # serverCASecret: my-postgresql-server-ca
+    # serverTLSSecret: my-postgresql-server
+
+    # Client certificates
+    # clientCASecret: my-postgres-client-cert
+    # replicationTLSSecret: my-postgres-client-cert
 
   # Affinity configurations for the cluster
   affinity:

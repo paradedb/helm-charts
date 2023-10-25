@@ -12,6 +12,10 @@ spec:
   imageName: {{ .Values.cluster.imageName }}
 {{- end }}
   instances: {{ .Values.cluster.instances }}
+{{- if .Values.cluster.certificates }}
+  certificates: 
+{{ toYaml .Values.cluster.certificates | indent 4}}
+{{- end }}
 {{- if .Values.cluster.startDelay }}
   startDelay: {{ .Values.cluster.startDelay }}
 {{- end }}
