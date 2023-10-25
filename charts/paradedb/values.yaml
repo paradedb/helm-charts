@@ -145,6 +145,16 @@ cluster:
     # clientCASecret: my-postgres-client-cert
     # replicationTLSSecret: my-postgres-client-cert
 
+  # Monitoring
+  monitoring:
+    enablePodMonitor: true
+    # customQueriesConfigMap:
+    #   - name: example-monitoring
+    #     key: custom-queries
+    # customQueriesSecret:
+    #   - name: example-monitoring-secret
+    #     key: pg-database
+
   # Affinity configurations for the cluster
   affinity:
     enablePodAntiAffinity: true

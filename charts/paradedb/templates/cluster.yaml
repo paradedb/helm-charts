@@ -89,6 +89,11 @@ spec:
       cpu: {{ .Values.cluster.resources.limits.cpu }}
 {{- end }}
 
+{{- if .Values.cluster.monitoring }}
+  monitoring:
+{{ toYaml .Values.cluster.monitoring | indent 4 }}
+{{- end }}
+
 {{- if .Values.cluster.affinity }}
   affinity:
     enablePodAntiAffinity: {{ .Values.cluster.affinity.enablePodAntiAffinity }}
