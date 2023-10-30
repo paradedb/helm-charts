@@ -8,10 +8,8 @@ spec:
 {{- if .Values.cluster.description }}
   description: {{ .Values.cluster.description }}
 {{- end }}
-{{- if .Values.cluster.imageName }}
-  imageName: {{ .Values.cluster.imageName }}
-{{- end }}
-{{- if .Values.cluster.imageName }}
+  imageName: {{ .Values.cluster.imageName | default (include "cluster.image" .) }}
+{{- if .Values.cluster.imagePullPolicy }}
   imagePullPolicy: {{ .Values.cluster.imagePullPolicy }}
 {{- end }}
   instances: {{ .Values.cluster.instances }}
