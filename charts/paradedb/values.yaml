@@ -37,8 +37,10 @@ installOperator: true
 cluster:
   # Description for the cluster
   description: "Cluster to run ParadeDB"
-  # Image for the PostgreSQL instance
-  imageName: paradedb/paradedb:15-v0.2.25
+  # Postgres major version
+  majorVersion: "15"
+  # Override image for the PostgreSQL instance
+  # imageName: ""
   # Image pull policy
   imagePullPolicy: IfNotPresent
   # Number of instances

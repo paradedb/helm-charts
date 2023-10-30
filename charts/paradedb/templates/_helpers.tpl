@@ -5,6 +5,13 @@
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
+{{/*
+Create a default image name
+*/}}
+{{- define "cluster.image" -}}
+{{- printf "%s/%s:%s-v%s" .Chart.Name .Chart.Name .Values.cluster.majorVersion .Chart.AppVersion -}}
+{{- end -}}
+
 {{/* Common labels */}}
 {{- define "cluster.labels" -}}
 helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
