@@ -101,6 +101,8 @@ cluster:
         - CREATE EXTENSION IF NOT EXISTS age CASCADE;
         - ALTER DATABASE paradedb SET search_path TO public,paradedb;
         - ALTER USER paradedb WITH SUPERUSER;
+      postInitTemplateSQL:
+        - ALTER DATABASE template1 SET search_path TO public,paradedb;
 
   # Storage configurations for the cluster
   storage:
