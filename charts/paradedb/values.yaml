@@ -100,6 +100,7 @@ cluster:
         - CREATE EXTENSION IF NOT EXISTS rum CASCADE;
         - CREATE EXTENSION IF NOT EXISTS age CASCADE;
         - ALTER USER paradedb WITH SUPERUSER;
+        - VACUUM FULL paradedb.mock_items;
 
   # Storage configurations for the cluster
   storage:
