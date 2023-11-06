@@ -25,13 +25,25 @@ Kubernetes.
 
 - A Kubernetes cluster with at least v1.21
 - [Helm](https://helm.sh/)
+- [CloudNative Operator](https://cloudnative-pg.io/) installed on the cluster
 
 ## Usage
 
 [Helm](https://helm.sh) must be installed to use the charts. Please refer to
 Helm's [documentation](https://helm.sh/docs) to get started.
 
-Once Helm has been set up correctly, add the repo as follows:
+We recommend installation of the CloudNative Operator using their official helm
+chart.
+
+```bash
+helm repo add cnpg https://cloudnative-pg.github.io/charts
+helm upgrade --install cnpg \
+  --namespace cnpg-system \
+  --create-namespace \
+  cnpg/cloudnative-pg
+```
+
+Once it is installed, add the ParadeDB repo as follows:
 
     helm repo add paradedb https://paradedb.github.io/helm-charts
 
@@ -54,7 +66,7 @@ specifying values on the command line during installation.
 
 Check the
 [values.yaml](https://github.com/paradedb/helm-charts/blob/main/charts/paradedb/values.yaml)
-for more information.
+file for more information.
 
 ## Development
 
