@@ -32,8 +32,8 @@ Kubernetes.
 [Helm](https://helm.sh) must be installed to use the charts. Please refer to
 Helm's [documentation](https://helm.sh/docs) to get started.
 
-We recommend installation of the CloudNative Operator using their official helm
-chart.
+We recommend installation of the CloudNative Operator using their
+[official helm chart](https://github.com/cloudnative-pg/charts).
 
 ```bash
 helm repo add cnpg https://cloudnative-pg.github.io/charts
