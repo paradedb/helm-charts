@@ -25,13 +25,50 @@ Kubernetes.
 
 - A Kubernetes cluster with at least v1.21
 - [Helm](https://helm.sh/)
+- [CloudNative Operator](https://cloudnative-pg.io/) installed on the cluster
 
 ## Usage
 
-[Helm](https://helm.sh) must be installed to use the charts. Please refer to
-Helm's [documentation](https://helm.sh/docs) to get started.
+The steps below assume you have an accessible Kubernetes cluster.
 
-Once Helm has been set up correctly, add the repo as follows:
+### Install Helm
+
+First, install Helm. You can do so using their installation script:
+
+```bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+```
+
+See the [Helm docs](https://helm.sh/docs/intro/install/) for more information.
+
+### Install CloudNative Operator
+
+This chart does not include the Custom Resource Definitions (CRDs) from the
+CloudNative Operator, and it doesn't explicitly depend on it due to Helm's
+constraints with CRD management. As such, the operator itself is not bundled
+within this chart.
+
+To use this chart, you need to independently install the operator CRDs. You can
+install the operator using the
+[official helm chart](https://github.com/cloudnative-pg/charts).
+
+```bash
+helm repo add cnpg https://cloudnative-pg.github.io/charts
+helm upgrade --install cnpg \
+  --namespace cnpg-system \
+  --create-namespace \
+  cnpg/cloudnative-pg
+```
+
+It is also possible to install using the manifest directly. See the operator
+[installation documentation](https://cloudnative-pg.io/documentation/1.21/installation_upgrade/#installation-on-kubernetes)
+for more information.
+
+### Install ParadeDB Helm Chart
+
+Once the operator is installed, add the ParadeDB repo to helm as follows:
 
     helm repo add paradedb https://paradedb.github.io/helm-charts
 
@@ -54,7 +91,7 @@ specifying values on the command line during installation.
 
 Check the
 [values.yaml](https://github.com/paradedb/helm-charts/blob/main/charts/paradedb/values.yaml)
-for more information.
+file for more information.
 
 ## Development
 
