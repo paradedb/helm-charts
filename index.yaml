@@ -3,6 +3,16 @@ entries:
   paradedb:
   - apiVersion: v2
     appVersion: 0.3.3
+    created: "2023-11-07T17:55:25.733218105Z"
+    description: A Helm chart for deploying ParadeDB
+    digest: db15b0af888c276351d500f990ccfc1bff86e051b8312ca4b6115b637376b2e9
+    name: paradedb
+    type: application
+    urls:
+    - https://github.com/paradedb/helm-charts/releases/download/paradedb-0.5.0/paradedb-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
+    appVersion: 0.3.3
     created: "2023-11-05T20:38:24.865119582Z"
     dependencies:
     - condition: installOperator
@@ -520,4 +530,4 @@ entries:
     urls:
     - search-0.0.5.tgz
     version: 0.0.5
-generated: "2023-11-05T20:38:24.865256093Z"
+generated: "2023-11-07T17:55:25.733542114Z"
