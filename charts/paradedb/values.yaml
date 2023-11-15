@@ -100,7 +100,6 @@ cluster:
         - CREATE EXTENSION IF NOT EXISTS age CASCADE;
         - ALTER DATABASE paradedb SET search_path TO public,paradedb;
         - ALTER USER paradedb WITH SUPERUSER;
-        - VACUUM FULL paradedb.mock_items;
       postInitTemplateSQL:
         - ALTER DATABASE template1 SET search_path TO public,paradedb;
 
