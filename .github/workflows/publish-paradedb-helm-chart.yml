@@ -11,9 +11,9 @@ on:
   workflow_dispatch:
     inputs:
       appVersion:
-        description: 'The ParadeDB version to publish in the Helm Chart (e.g. 0.1.0)'
+        description: "The ParadeDB version to publish in the Helm Chart (e.g. 0.1.0)"
         required: true
-        default: ''
+        default: ""
 
 concurrency:
   group: publish-helm-chart-${{ github.head_ref || github.ref }}
