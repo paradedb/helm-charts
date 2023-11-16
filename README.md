@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://paradedb.com"><img src="../docs/logo/readme.svg" alt="ParadeDB" width="368px"></a>
+  <img src="https://raw.githubusercontent.com/paradedb/paradedb/dev/docs/logo/readme.svg" alt="ParadeDB" width="368px"></a>
 <br>
 </h1>
 
@@ -8,7 +8,7 @@
 </p>
 
 <h3 align="center">
-  <a href="https://paradedb.com">Website</a> &bull;
+  <a href="https://paradedb.com">Cloud</a> &bull;
   <a href="https://docs.paradedb.com">Documentation</a> &bull;
   <a href="https://paradedb.com/blog">Blog</a> &bull;
   <a href="https://join.slack.com/t/paradedbcommunity/shared_invite/zt-217mordsh-ielS6BiZf7VW3rqKBFgAlQ">Community</a>
