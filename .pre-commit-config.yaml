@@ -9,9 +9,7 @@ repos:
         args: ["--branch", "main", "--branch", "staging", "--branch", "dev"]
       - id: mixed-line-ending
       - id: end-of-file-fixer
-        exclude: '(\.sql|\.out)$' # These need te be formatted very particularly for pg_regress
       - id: trailing-whitespace
-        exclude: '(\.sql|\.out)$' # These need te be formatted very particularly for pg_regress
       - id: check-added-large-files
       - id: check-merge-conflict
       - id: check-case-conflict
@@ -25,7 +23,6 @@ repos:
       - id: check-toml
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
-        exclude: '\.rs$' # This doesn't play well with #![allow(clippy::crate_in_macro_def)]
       - id: check-vcs-permalinks
       - id: detect-private-key
       - id: detect-aws-credentials
