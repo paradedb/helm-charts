@@ -16,6 +16,8 @@
 
 ---
 
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/paradedb)](https://artifacthub.io/packages/search?repo=paradedb)
+
 # Helm Chart
 
 This repository contains the Helm chart for deploying and managing ParadeDB on
@@ -83,6 +85,8 @@ To install the paradedb chart:
 To uninstall the chart:
 
     helm delete my-db
+
+You can also download the chart directly from [Artifact Hub](https://artifacthub.io/packages/helm/paradedb/paradedb).
 
 ## Configuration
 
