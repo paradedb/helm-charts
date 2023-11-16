@@ -51,7 +51,6 @@ jobs:
             -f name='HELM_VERSION_PATCH' \
             -f value='${NEW_HELM_VERSION_PATCH}'
 
-      # Both versions are stored in GitHub Actions Variables
       - name: Set Helm Chart Release Versions
         working-directory: charts/paradedb/
         run: |
