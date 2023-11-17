@@ -51,8 +51,8 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             /repos/paradedb/helm-charts/actions/variables/CHART_VERSION_PATCH \
-            -f name='CHART_VERSION_PATCH' \
-            -f value='${NEW_CHART_VERSION_PATCH}'
+            -f name="CHART_VERSION_PATCH" \
+            -f value="${NEW_CHART_VERSION_PATCH}"
 
       - name: Set Helm Chart Release Versions
         working-directory: charts/paradedb/
@@ -69,6 +69,7 @@ jobs:
           # Update appVersion to the GitHub Release version and version to the Helm Chart version
           sed -i "s/^appVersion: .*/appVersion: $APP_VERSION/" Chart.yaml
           sed -i 's/^version: .*/version: ${{ vars.CHART_VERSION_MAJOR }}.${{ vars.CHART_VERSION_MINOR }}.${{ vars.CHART_VERSION_PATCH }}/' Chart.yaml
+          cat Chart.yaml
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
