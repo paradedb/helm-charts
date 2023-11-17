@@ -94,7 +94,7 @@ You can also download the chart directly from [Artifact Hub](https://artifacthub
 
 ## Configuration
 
-The ParadeDB Helm chart can be configured using the `values.yaml`` file or by
+The ParadeDB Helm chart can be configured using the `values.yaml` file or by
 specifying values on the command line during installation.
 
 Check the [values.yaml](https://github.com/paradedb/helm-charts/blob/main/charts/paradedb/values.yaml)
