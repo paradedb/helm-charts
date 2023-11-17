@@ -8,7 +8,7 @@ name: Lint Helm
 on:
   pull_request:
     paths:
-      - "helm/*"
+      - "charts/paradedb/*"
       - ".github/workflows/lint-helm.yml"
   workflow_dispatch:
 
