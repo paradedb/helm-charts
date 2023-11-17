@@ -50,7 +50,7 @@ jobs:
             --method PATCH \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            /repos/paradedb/paradedb/actions/variables/HELM_VERSION_PATCH \
+            /repos/paradedb/helm-charts/actions/variables/HELM_VERSION_PATCH \
             -f name='HELM_VERSION_PATCH' \
             -f value='${NEW_HELM_VERSION_PATCH}'
 
@@ -59,7 +59,7 @@ jobs:
         run: |
           # If no appVersion is provided, we use the latest ParadeDB version
           if [ -z "${{ github.event.inputs.appVersion }}" ]; then
-            LATEST_TAG=$(curl -s https://api.github.com/repos/paradedb/helm-charts/tags | jq -r '.[0].name')
+            LATEST_TAG=$(curl -s https://api.github.com/repos/paradedb/paradedb/tags | jq -r '.[0].name')
             APP_VERSION=${LATEST_TAG#v}
           else
             APP_VERSION=${{ github.event.inputs.appVersion }}
