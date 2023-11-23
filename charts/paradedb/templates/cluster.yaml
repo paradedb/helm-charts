@@ -2,6 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: {{ include "cluster.name" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
 {{include "cluster.labels" . | indent 4 }}
 spec:
@@ -99,6 +100,36 @@ spec:
   affinity:
     enablePodAntiAffinity: {{ .Values.cluster.affinity.enablePodAntiAffinity }}
     topologyKey: {{ .Values.cluster.affinity.topologyKey }}
+
+{{- if .Values.cluster.affinity.nodeSelector }}
+    nodeSelector:
+{{ toYaml .Values.cluster.affinity.nodeSelector | indent 6 }}
+{{- end }}
+
+{{- if .Values.cluster.affinity.nodeAffinity }}
+    nodeAffinity:
+{{ toYaml .Values.cluster.affinity.nodeAffinity | indent 6 }}
+{{- end }}
+
+{{- if .Values.cluster.affinity.tolerations }}
+    tolerations:
+{{ toYaml .Values.cluster.affinity.tolerations | indent 6 }}
+{{- end }}
+
+{{- if .Values.cluster.affinity.podAntiAffinityType }}
+    podAntiAffinityType: {{ .Values.cluster.affinity.podAntiAffinityType }}
+{{- end }}
+
+{{- if .Values.cluster.affinity.additionalPodAntiAffinity }}
+    additionalPodAntiAffinity:
+{{ toYaml .Values.cluster.affinity.additionalPodAntiAffinity | indent 6 }}
+{{- end }}
+
+{{- if .Values.cluster.affinity.additionalPodAffinity }}
+    additionalPodAffinity:
+{{ toYaml .Values.cluster.affinity.additionalPodAffinity | indent 6 }}
+{{- end }}
+
 {{- end }}
 
 {{- if .Values.cluster.nodeMaintenanceWindow }}

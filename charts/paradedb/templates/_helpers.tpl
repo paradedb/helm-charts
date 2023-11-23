@@ -2,7 +2,7 @@
 
 {{/* Define the name of the chart */}}
 {{- define "cluster.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
+{{- default .Chart.Name .Values.cluster.name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
