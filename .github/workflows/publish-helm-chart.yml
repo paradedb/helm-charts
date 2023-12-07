@@ -62,8 +62,22 @@ jobs:
           # Set output to update post-release
           echo "new_chart_version_patch=${NEW_CHART_VERSION_PATCH}" >> $GITHUB_OUTPUT
 
+      # The PGP key gets populated via environment variables in the .github/config/chart-releaser.yml file,
+      # and picked up automatically by the chart-releaser-action.
+      - name: Prepare PGP Key to Sign Helm Chart for ArtifactHub
+        run: |
+          IFS=""
+          echo "${{ secrets.PGP_PRIVATE_KEY }}" | gpg --dearmor > $HOME/secring.gpg
+          echo "${{ secrets.PGP_PASSPHRASE }}" > $HOME/passphrase.txt
+
+          # Tell chart-releaser-action where to find the key and its passphrase
+          echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
+          echo "CR_PASSPHRASE_FILE=$HOME/passphrase.txt" >> "$GITHUB_ENV"
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
+        with:
+          config: "./.github/config/chart-releaser.yml"
         env:
           CR_TOKEN: "${{ secrets.GHA_CREATE_RELEASE_PAT }}"
 
