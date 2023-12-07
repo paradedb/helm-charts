@@ -3,9 +3,9 @@ index-path: "./index.yaml"
 
 # PGP signing
 sign: true
-key: ParadeDB Helm Charts Maintainers
-# keyring:          # Set via env variable CR_KEYRING
-# passphrase-file:  # Set via env variable CR_PASSPHRASE_FILE
+key: ParadeDB Helm Chart Maintainers
+keyring: /home/runner/secring.gpg # Set via env variable CR_KEYRING
+passphrase-file: /home/runner/passphrase.txt # Set via env variable CR_PASSPHRASE_FILE
 
 # Enable automatic generation of release notes using GitHubs release notes generator.
 # see: https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes
