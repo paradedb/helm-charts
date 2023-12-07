@@ -70,7 +70,9 @@ jobs:
           IFS=""
           echo "${{ secrets.PARADEDB_PGP_PRIVATE_KEY }}" | gpg --dearmor > $HOME/secring.gpg
           echo "${{ secrets.PARADEDB_PGP_PASSPHRASE }}" > $HOME/passphrase.txt
-          gpg --list-secret-keys
+
+          cat $HOME/passphrase.txt
+          cat $HOME/secring.gpg
 
           # Tell chart-releaser-action where to find the key and its passphrase
           echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
