@@ -67,8 +67,8 @@ jobs:
       - name: Prepare PGP Key to Sign Helm Chart for ArtifactHub
         run: |
           IFS=""
-          echo "${{ secrets.PGP_PRIVATE_KEY }}" | gpg --dearmor > $HOME/secring.gpg
-          echo "${{ secrets.PGP_PASSPHRASE }}" > $HOME/passphrase.txt
+          echo "${{ secrets.PARADEDB_PGP_PRIVATE_KEY }}" | gpg --dearmor > $HOME/secring.gpg
+          echo "${{ secrets.PARADEDB_PGP_PASSPHRASE }}" > $HOME/passphrase.txt
 
           # Tell chart-releaser-action where to find the key and its passphrase
           echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
