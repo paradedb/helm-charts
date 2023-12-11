@@ -1,7 +1,14 @@
 apiVersion: v2
 name: paradedb
 description: Helm Chart for deploying ParadeDB on Kubernetes
+home: https://github.com/paradedb/helm-charts
 icon: https://raw.githubusercontent.com/paradedb/paradedb/dev/docs/logo/readme.svg
+keywords:
+  - paradedb
+  - pg_bm25
+maintainers:
+  - name: ParadeDB
+    url: https://paradedb.github.io/helm-charts/
 
 # A chart can be either an 'application' or a 'library' chart.
 #
