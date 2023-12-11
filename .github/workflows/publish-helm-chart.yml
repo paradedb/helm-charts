@@ -11,7 +11,6 @@ on:
   push:
     branches:
       - main
-      - phil/sign
   workflow_dispatch:
     inputs:
       appVersion:
@@ -78,18 +77,6 @@ jobs:
           IFS=""
           echo "$PGP_PRIVATE_KEY" | gpg --dearmor --verbose > $HOME/secring.gpg
           echo "$PGP_PASSPHRASE" > $HOME/passphrase.txt
-    
-          # Verify if the key has been imported
-          gpg --list-secret-keys --keyring $HOME/secring.gpg
-          gpg --list-secret-keys
-    
-          # Check if the secring.gpg file exists
-          if [ -f "$HOME/secring.gpg" ]; then
-            echo "Secring file exists."
-          else
-            echo "Secring file does not exist."
-            exit 1
-          fi
     
           # Tell chart-releaser-action where to find the key and its passphrase
           echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
