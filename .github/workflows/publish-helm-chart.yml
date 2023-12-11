@@ -11,6 +11,7 @@ on:
   push:
     branches:
       - main
+      - phil/sign
   workflow_dispatch:
     inputs:
       appVersion:
@@ -62,8 +63,30 @@ jobs:
           # Set output to update post-release
           echo "new_chart_version_patch=${NEW_CHART_VERSION_PATCH}" >> $GITHUB_OUTPUT
 
+      # The README needs to be in the same directory as the Chart.yaml file for ArtifactHub to display it
+      - name: Copy README.md for Packaging
+        run: cp README.md charts/paradedb/README.md
+
+      # The GitHub repository secret `PARADEDB_PGP_PRIVATE_KEY` contains the private key
+      # in ASCII-armored format. To export a (new) key, run this command:
+      # `gpg --armor --export-secret-key <my key>`
+      - name: Prepare ParadeDB PGP Key
+        run: |
+          IFS=""
+          echo "$PGP_PRIVATE_KEY" | gpg --dearmor > $HOME/secring.gpg
+          echo "$PGP_PASSPHRASE" > $HOME/passphrase.txt
+
+          # Tell chart-releaser-action where to find the key and its passphrase
+          echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
+          echo "CR_PASSPHRASE_FILE=$HOME/passphrase.txt" >> "$GITHUB_ENV"
+        env:
+          PGP_PRIVATE_KEY: "${{ secrets.PARADEDB_PGP_PRIVATE_KEY }}"
+          PGP_PASSPHRASE: "${{ secrets.PARADEDB_PGP_PASSPHRASE }}"
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
+        with:
+          config: "./.github/config/cr.yaml"
         env:
           CR_TOKEN: "${{ secrets.GHA_CREATE_RELEASE_PAT }}"
 
