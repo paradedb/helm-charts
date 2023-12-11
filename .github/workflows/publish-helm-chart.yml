@@ -71,17 +71,20 @@ jobs:
       # in ASCII-armored format. To export a (new) key, run this command:
       # `gpg --armor --export-secret-key <my key>`
       - name: Prepare ParadeDB PGP Key
+        env:
+          PGP_PRIVATE_KEY: "${{ secrets.PARADEDB_PGP_PRIVATE_KEY }}"
+          PGP_PASSPHRASE: "${{ secrets.PARADEDB_PGP_PASSPHRASE }}"
         run: |
           IFS=""
           echo "$PGP_PRIVATE_KEY" | gpg --dearmor > $HOME/secring.gpg
           echo "$PGP_PASSPHRASE" > $HOME/passphrase.txt
 
+          # Verify if the key has been imported
+          gpg --list-secret-keys --keyring $HOME/secring.gpg
+
           # Tell chart-releaser-action where to find the key and its passphrase
           echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
           echo "CR_PASSPHRASE_FILE=$HOME/passphrase.txt" >> "$GITHUB_ENV"
-        env:
-          PGP_PRIVATE_KEY: "${{ secrets.PARADEDB_PGP_PRIVATE_KEY }}"
-          PGP_PASSPHRASE: "${{ secrets.PARADEDB_PGP_PASSPHRASE }}"
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
