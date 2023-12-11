@@ -3,6 +3,17 @@ entries:
   paradedb:
   - apiVersion: v2
     appVersion: 0.3.12
+    created: "2023-12-11T20:34:49.68905197Z"
+    description: Helm Chart for deploying ParadeDB on Kubernetes
+    digest: 73776c52f1cb64b114a34cc36f6ec78f8e4a64e5da19010015c9867067e78bb5
+    icon: https://raw.githubusercontent.com/paradedb/paradedb/dev/docs/logo/readme.svg
+    name: paradedb
+    type: application
+    urls:
+    - https://github.com/paradedb/helm-charts/releases/download/paradedb-0.5.12/paradedb-0.5.12.tgz
+    version: 0.5.12
+  - apiVersion: v2
+    appVersion: 0.3.12
     created: "2023-12-07T21:42:04.073059138Z"
     description: Helm Chart for deploying ParadeDB on Kubernetes
     digest: 733be97cb92d060634b60e9ac3ee35f1767e083ae97258e4c5394b2829ff5123
@@ -340,4 +351,4 @@ entries:
     urls:
     - https://github.com/paradedb/helm-charts/releases/download/paradedb-0.4.0/paradedb-0.4.0.tgz
     version: 0.4.0
-generated: "2023-12-07T21:42:04.073353546Z"
+generated: "2023-12-11T20:34:49.689407632Z"
