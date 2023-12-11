@@ -81,6 +81,7 @@ jobs:
     
           # Verify if the key has been imported
           gpg --list-secret-keys --keyring $HOME/secring.gpg
+          gpg --list-secret-keys
     
           # Check if the secring.gpg file exists
           if [ -f "$HOME/secring.gpg" ]; then
