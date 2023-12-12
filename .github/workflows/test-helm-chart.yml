@@ -27,6 +27,13 @@ jobs:
       - name: Create K8s Kind Cluster
         uses: helm/kind-action@v1.8.0
 
+      - name: Install CRDs
+        run: |
+          helm repo add cnpg https://cloudnative-pg.github.io/charts
+          helm upgrade --install cnpg \
+            --namespace cnpg-system \
+            --create-namespace cnpg/cloudnative-pg
+
       - name: Create Kubernetes Namespace
         run: kubectl create namespace helm-test
 
