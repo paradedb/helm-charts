@@ -23,7 +23,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  release:
+  publish-helm-chart:
     name: Publish ParadeDB Helm Chart to GitHub Pages
     runs-on: ubuntu-latest
     permissions:
