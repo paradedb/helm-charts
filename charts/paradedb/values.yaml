@@ -132,6 +132,19 @@ cluster:
     # Retention policy for the backups
     # retentionPolicy: "30d"
 
+    volumeSnapshot:
+      className: standard
+      walClassName: standard
+      snapshotOwnerReference: backup
+
+    scheduled:
+      suspend: false
+      immediate: true
+      schedule: "0 0 0 * * *"
+      backupOwnerReference: "self"
+      method: "volumeSnapshot"
+      
+
   # Resource configurations for the cluster
   resources:
     requests:

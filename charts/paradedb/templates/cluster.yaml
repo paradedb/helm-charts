@@ -78,6 +78,10 @@ spec:
     barmanObjectStore:
 {{ toYaml .Values.cluster.backup.barmanObjectStore | indent 6 }}
 {{- end }}
+{{- if .Values.cluster.backup.volumeSnapshot }}
+    volumeSnapshot:
+{{ toYaml .Values.cluster.backup.volumeSnapshot | indent 6 }}
+{{- end }}
     retentionPolicy: {{ .Values.cluster.backup.retentionPolicy }}
 {{- end }}
 
