@@ -53,15 +53,13 @@ constraints with CRD management. As such, the operator itself is not bundled
 within this chart.
 
 To use this chart, you need to independently install the operator CRDs. You can
-install the operator using the
-[official helm chart](https://github.com/cloudnative-pg/charts).
+install the operator using the [official helm chart](https://github.com/cloudnative-pg/charts).
 
 ```bash
 helm repo add cnpg https://cloudnative-pg.github.io/charts
 helm upgrade --install cnpg \
   --namespace cnpg-system \
-  --create-namespace \
-  cnpg/cloudnative-pg
+  --create-namespace cnpg/cloudnative-pg
 ```
 
 It is also possible to install using the manifest directly. See the operator

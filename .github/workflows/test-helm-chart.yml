@@ -1,0 +1,51 @@
+# workflows/test-helm-chart.yml
+#
+# Test Helm Chart
+# Test the ParadeDB Helm Chart by running helm tests against a Kubernetes cluster.
+
+name: Test Helm Chart
+
+on:
+  pull_request:
+    paths:
+      - "charts/**"
+      - ".github/workflows/test-helm-chart.yml"
+
+concurrency:
+  group: test-helm-chart-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-helm-chart:
+    name: Test ParadeDB Helm Chart via Kind Cluster
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create K8s Kind Cluster
+        uses: helm/kind-action@v1.8.0
+
+      - name: Install CRDs
+        run: |
+          helm repo add cnpg https://cloudnative-pg.github.io/charts
+          helm upgrade --install cnpg \
+            --namespace cnpg-system \
+            --create-namespace cnpg/cloudnative-pg
+
+      - name: Create Kubernetes Namespace
+        run: kubectl create namespace helm-test
+
+      - name: Install Dependencies
+        run: helm dependency update ./charts/paradedb/
+
+      - name: Deploy Helm Chart to Test Namespace
+        run: helm install test-release ./charts/paradedb/ --namespace helm-test
+
+      - name: Run Helm Tests
+        run: helm test test-release --namespace helm-test
+
+      - name: Clean up
+        if: always()
+        run: helm delete test-release --namespace helm-test
