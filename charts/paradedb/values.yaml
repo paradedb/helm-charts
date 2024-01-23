@@ -153,13 +153,13 @@ cluster:
 
     # This will create a ScheduledBackup object. The configuration
     # for the backup method must be defined.
-    # scheduled:
+    scheduled:
     #   suspend: false
     #   immediate: true
     #   schedule: "0 0 0 * * *"
     #   backupOwnerReference: "self"
     #   method: "barmanObjectStore"
-      
+
 
   # Resource configurations for the cluster
   resources:
