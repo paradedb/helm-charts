@@ -65,6 +65,8 @@ cluster:
     pg_hba:
       - host all all 10.244.0.0/16 md5
     shared_preload_libraries:
+      - pgaudit
+      - pg_cron
       - pg_bm25
       - pg_analytics
 
