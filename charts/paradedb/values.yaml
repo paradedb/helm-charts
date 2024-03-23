@@ -67,8 +67,8 @@ cluster:
     shared_preload_libraries:
       - pgaudit
       - pg_cron
-      - pg_bm25
       - pg_analytics
+      - pg_search
 
   # Bootstrap configuration for the database
   bootstrap:
@@ -78,7 +78,7 @@ cluster:
       # secret:
       #   name: cluster-example-app-user
       postInitApplicationSQL:
-        - CREATE EXTENSION IF NOT EXISTS "pg_bm25" CASCADE;
+        - CREATE EXTENSION IF NOT EXISTS "pg_search" CASCADE;
         - CREATE EXTENSION IF NOT EXISTS "pg_analytics" CASCADE;
         - CREATE EXTENSION IF NOT EXISTS "svector" CASCADE;
         - CREATE EXTENSION IF NOT EXISTS "vector" CASCADE;

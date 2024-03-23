@@ -5,8 +5,8 @@ home: https://github.com/paradedb/helm-charts
 icon: https://raw.githubusercontent.com/paradedb/paradedb/dev/docs/logo/readme.svg
 keywords:
   - paradedb
-  - pg_bm25
   - pg_analytics
+  - pg_search
 maintainers:
   - name: ParadeDB
     url: https://paradedb.github.io/helm-charts/
