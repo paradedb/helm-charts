@@ -78,8 +78,8 @@ cluster:
       # secret:
       #   name: cluster-example-app-user
       postInitApplicationSQL:
-        - CREATE EXTENSION IF NOT EXISTS "pg_search" CASCADE;
         - CREATE EXTENSION IF NOT EXISTS "pg_analytics" CASCADE;
+        - CREATE EXTENSION IF NOT EXISTS "pg_search" CASCADE;
         - CREATE EXTENSION IF NOT EXISTS "svector" CASCADE;
         - CREATE EXTENSION IF NOT EXISTS "vector" CASCADE;
         - ALTER DATABASE paradedb SET search_path TO public,paradedb;
