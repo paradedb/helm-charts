@@ -8,8 +8,8 @@ name: Lint Helm
 on:
   pull_request:
     paths:
-      - 'charts/paradedb/*'
-      - '.github/workflows/lint-helm.yml'
+      - "charts/paradedb/*"
+      - ".github/workflows/lint-helm.yml"
   workflow_dispatch:
 
 concurrency:
