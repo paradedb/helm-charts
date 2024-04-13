@@ -28,6 +28,9 @@ spec:
   primaryUpdateStrategy: {{ .Values.cluster.primaryUpdateStrategy }}
 {{- end }}
 
+  postgresUID: {{ .Values.cluster.postgresUID }}
+  postgresGID: {{ .Values.cluster.postgresGID }}
+
 {{- if .Values.cluster.postgresql }}
   postgresql:
 {{- if .Values.cluster.postgresql.parameters }}

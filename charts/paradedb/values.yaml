@@ -52,6 +52,11 @@ cluster:
   # Update strategy for the primary
   primaryUpdateStrategy: unsupervised
 
+  # User and group ids of the postgres user, must exist on the base image
+  # so the operator can start the postgres server.
+  postgresUID: 1001
+  postgresGID: 1001
+
   # PostgreSQL specific configurations
   postgresql:
     parameters:
