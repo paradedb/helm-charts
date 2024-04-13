@@ -3,7 +3,7 @@ paradedb:
     repository: paradedb/paradedb
     tag: 16-v0.6.0
 
-  auth:    
+  auth:
     # username
     username: paradedb
 
