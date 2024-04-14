@@ -28,6 +28,13 @@ type: application
 # This value gets filled in automatically during the CI release process.
 version: 0.0.0
 
+dependencies:
+  - name: postgresql
+    # We set the alias to paradedb so resources are named 'paradedb'
+    alias: paradedb
+    version: 15.2.5
+    repository: oci://registry-1.docker.io/bitnamicharts
+
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.

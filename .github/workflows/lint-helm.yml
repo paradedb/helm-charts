@@ -25,6 +25,10 @@ jobs:
       - name: Checkout Git Repository
         uses: actions/checkout@v4
 
+      - name: Build dependencies
+        working-directory: charts/paradedb/
+        run: helm dep build
+
       - name: Check Helm Formatting
         working-directory: charts/paradedb/
         run: helm lint . --strict
