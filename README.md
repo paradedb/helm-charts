@@ -4,14 +4,15 @@
 </h1>
 
 <p align="center">
-    <b>PostgreSQL for Search</b> <br />
+    <b>Postgres for Search and Analytics</b> <br />
 </p>
 
 <h3 align="center">
-  <a href="https://paradedb.com">Cloud</a> &bull;
-  <a href="https://docs.paradedb.com">Documentation</a> &bull;
-  <a href="https://paradedb.com/blog">Blog</a> &bull;
-  <a href="https://join.slack.com/t/paradedbcommunity/shared_invite/zt-217mordsh-ielS6BiZf7VW3rqKBFgAlQ">Community</a>
+  <a href="https://paradedb.com">Website</a> &bull;
+  <a href="https://docs.paradedb.com">Docs</a> &bull;
+  <a href="https://join.slack.com/t/paradedbcommunity/shared_invite/zt-217mordsh-ielS6BiZf7VW3rqKBFgAlQ">Community</a> &bull;
+  <a href="https://blog.paradedb.com">Blog</a> &bull;
+  <a href="https://docs.paradedb.com/changelog/">Changelog</a>
 </h3>
 
 ---
@@ -134,4 +135,8 @@ You are now all set to start developing and testing locally!
 
 ## License
 
-ParadeDB is licensed under the [GNU Affero General Public License v3.0](LICENSE).
+ParadeDB is licensed under the [GNU Affero General Public License v3.0](LICENSE) and as commercial software.
+
+For commercial licensing, please contact us at [sales@paradedb.com](mailto:sales@paradedb.com).
+
+If you are an open-source project and would like to use ParadeDB under a different license, please contact us at [hello@paradedb.com](mailto:hello@paradedb.com).
