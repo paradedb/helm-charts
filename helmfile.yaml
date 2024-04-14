@@ -20,4 +20,4 @@ releases:
         value: paradedb
 
       - name: postgresqlSharedPreloadLibraries
-        value: 'pgaudit,pg_cron,pg_search,pg_analytics'
+        value: "pgaudit,pg_cron,pg_search,pg_analytics"
