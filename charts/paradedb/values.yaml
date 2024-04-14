@@ -4,13 +4,13 @@ paradedb:
     tag: 16-v0.6.0
 
   auth:
-    # username
+    # Username
     username: paradedb
 
     # Password for the user
     # password:
 
-    # existing password secret name
+    # Existing password secret name
     # existingSecret:
 
     # database name to create

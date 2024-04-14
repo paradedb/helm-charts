@@ -32,6 +32,7 @@ dependencies:
   - name: postgresql
     # We set the alias to paradedb so resources are named 'paradedb'
     alias: paradedb
+    # The version of the Bitnami PostgreSQL chart
     version: 15.2.5
     repository: oci://registry-1.docker.io/bitnamicharts
 
