@@ -45,9 +45,9 @@ chmod 700 get_helm.sh
 
 See the [Helm docs](https://helm.sh/docs/intro/install/) for more information.
 
-### Installing the ParadeDB Helm Chart
+### Install the ParadeDB Helm Chart
 
-Once the operator is installed, add the ParadeDB repo to Helm as follows:
+First, add the ParadeDB repo to Helm as follows:
 
 ```bash
 helm repo add paradedb https://paradedb.github.io/helm-charts
