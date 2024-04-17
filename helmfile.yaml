@@ -1,0 +1,23 @@
+repositories:
+  - name: bitnami
+    url: registry-1.docker.io/bitnamicharts
+    oci: true
+
+releases:
+  - name: paradedb
+    namespace: paradedb
+    chart: bitnami/postgresql
+    version: 15.2.5
+    set:
+      - name: image.repository
+        value: paradedb/paradedb
+      - name: image.tag
+        value: latest
+
+      - name: auth.username
+        value: paradedb
+      - name: auth.database
+        value: paradedb
+
+      - name: postgresqlSharedPreloadLibraries
+        value: "pgaudit,pg_cron,pg_search,pg_analytics"

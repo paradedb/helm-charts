@@ -1,7 +1,7 @@
 paradedb:
   image:
     repository: paradedb/paradedb
-    tag: 16-v0.6.0
+    tag: latest
 
   auth:
     # Username

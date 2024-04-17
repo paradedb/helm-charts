@@ -1,0 +1,19 @@
+image:
+  repository: paradedb/paradedb
+  tag: latest
+
+auth:
+  # username
+  username: paradedb
+
+  # Password for the user
+  # password:
+
+  # existing password secret name
+  # existingSecret:
+
+  # database name to create
+  database: paradedb
+
+# Shared preload libraries (comma-separated list)
+postgresqlSharedPreloadLibraries: "pgaudit,pg_cron,pg_search,pg_analytics"
