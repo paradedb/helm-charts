@@ -35,7 +35,7 @@ This repository contains the Helm chart for deploying and managing ParadeDB on K
 
 The steps below assume you have an accessible Kubernetes cluster.
 
-### Install Helm
+### Installing Helm
 
 First, install Helm. You can do so using their installation script:
 
