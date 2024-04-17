@@ -22,14 +22,16 @@
 
 # ParadeDB Helm Chart
 
-This repository contains the Helm chart for deploying and managing ParadeDB on Kubernetes.
+This repository contains the Helm chart for deploying and managing ParadeDB on Kubernetes. There are 3 ways in which you can deploy ParadeDB on Kubernetes:
+
+- Using the ParadeDB Helm chart directly
+- Using the Bitnami Helm chart with the ParadeDB-provided `values.yaml`
+- Using the Bitnami Helm chart while setting the `values.yaml` via the ParadeDB-provided `helmfile.yaml`
 
 ## Prerequisites
 
 - A Kubernetes cluster with at least v1.21
 - [Helm](https://helm.sh/)
-
-## Usage
 
 The steps below assume you have an accessible Kubernetes cluster.
 
@@ -45,7 +47,9 @@ chmod 700 get_helm.sh
 
 See the [Helm docs](https://helm.sh/docs/intro/install/) for more information.
 
-### Install the ParadeDB Helm Chart
+## Usage
+
+### Using the ParadeDB Helm Chart
 
 First, add the ParadeDB repo to Helm as follows:
 
@@ -70,17 +74,7 @@ helm delete <my-db>
 
 You can also download the chart directly from [Artifact Hub](https://artifacthub.io/packages/helm/paradedb/paradedb).
 
-### Installing using Helmfile
-
-You can install ParadeDB using [Helmfile](https://helmfile.readthedocs.io/en/latest/). Once helmfile is installed, you can download the `helmfile.yaml` file from this repository and run:
-
-```bash
-helmfile apply
-```
-
-You can configure values inside the `helmfile.yaml`. For a list of possible configurations, see the [bitnami chart parameters](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#parameters)
-
-### Installing using Helm
+### Using the Bitnami Helm Chart with ParadeDB `values.yaml`
 
 You can install ParadeDB using Helm and the Bitnami Postgres chart. To do so, run:
 
@@ -90,13 +84,21 @@ helm install paradedb oci://registry-1.docker.io/bitnamicharts/postgresql --name
 
 You can configure values inside the `helmfile.yaml`. For a list of possible configurations, see the [bitnami chart parameters](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#parameters)
 
-## Configuration
-
 The ParadeDB Helm chart can be configured using the `values.yaml` file or by
 specifying values on the command line during installation.
 
 Check the [values.yaml](https://github.com/paradedb/helm-charts/blob/main/charts/paradedb/values.yaml)
 file for more information. The values passed in correspond to the ones in [bitnami chart parameters](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#parameters).
+
+### Installing the Bitnami Helm Chart with ParadeDB `helmfile.yaml`
+
+You can install ParadeDB using [Helmfile](https://helmfile.readthedocs.io/en/latest/). Once helmfile is installed, you can download the `helmfile.yaml` file from this repository and run:
+
+```bash
+helmfile apply
+```
+
+You can configure values inside the `helmfile.yaml`. For a list of possible configurations, see the [bitnami chart parameters](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#parameters)
 
 ## Development
 
@@ -131,4 +133,8 @@ You are now all set to start developing and testing locally!
 
 ## License
 
-ParadeDB is licensed under the [GNU Affero General Public License v3.0](LICENSE).
+ParadeDB is licensed under the [GNU Affero General Public License v3.0](LICENSE) and as commercial software.
+
+For commercial licensing, please contact us at [sales@paradedb.com](mailto:sales@paradedb.com).
+
+If you are an open-source project and would like to use ParadeDB under a different license, please contact us at [hello@paradedb.com](mailto:hello@paradedb.com).
