@@ -7,6 +7,7 @@ name: Lint Helm
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
     paths:
       - "charts/paradedb/*"
       - ".github/workflows/lint-helm.yml"
@@ -19,7 +20,8 @@ concurrency:
 jobs:
   lint-helm:
     name: Lint Helm Charts
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-22.04-4
+    if: github.event.pull_request.draft == false
 
     steps:
       - name: Checkout Git Repository
