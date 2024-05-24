@@ -25,7 +25,7 @@ concurrency:
 jobs:
   release:
     name: Publish ParadeDB Helm Chart to GitHub Pages
-    runs-on: depot-ubuntu-22.04-4
+    runs-on: ubuntu-latest
     permissions:
       contents: write
 

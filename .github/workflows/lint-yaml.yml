@@ -20,7 +20,7 @@ concurrency:
 jobs:
   lint-yaml:
     name: Lint YAML Files
-    runs-on: depot-ubuntu-22.04-4
+    runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
 
     steps:
