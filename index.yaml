@@ -3,6 +3,30 @@ entries:
   paradedb:
   - apiVersion: v2
     appVersion: 0.7.1
+    created: "2024-05-24T22:16:12.662360233Z"
+    dependencies:
+    - alias: paradedb
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 15.2.5
+    description: Helm Chart for deploying ParadeDB on Kubernetes
+    digest: 9bcb3e62cf89b116a0e2aaf2125c4febd1d6e6b86477491880173929a17189c6
+    home: https://github.com/paradedb/helm-charts
+    icon: https://raw.githubusercontent.com/paradedb/paradedb/dev/docs/logo/readme.svg
+    keywords:
+    - paradedb
+    - pg_analytics
+    - pg_search
+    maintainers:
+    - name: ParadeDB
+      url: https://paradedb.github.io/helm-charts/
+    name: paradedb
+    type: application
+    urls:
+    - https://github.com/paradedb/helm-charts/releases/download/paradedb-0.5.64/paradedb-0.5.64.tgz
+    version: 0.5.64
+  - apiVersion: v2
+    appVersion: 0.7.1
     created: "2024-05-21T16:52:44.451199251Z"
     dependencies:
     - alias: paradedb
@@ -1353,4 +1377,4 @@ entries:
     urls:
     - https://github.com/paradedb/helm-charts/releases/download/paradedb-0.4.0/paradedb-0.4.0.tgz
     version: 0.4.0
-generated: "2024-05-21T16:52:44.451427428Z"
+generated: "2024-05-24T22:16:12.66289573Z"
