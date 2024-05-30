@@ -33,7 +33,7 @@ dependencies:
     # We set the alias to paradedb so resources are named 'paradedb'
     alias: paradedb
     # The version of the Bitnami PostgreSQL chart
-    version: 15.5.1
+    version: 15.5.0
     repository: oci://registry-1.docker.io/bitnamicharts
 
 # This is the version number of the application being deployed. This version number should be
