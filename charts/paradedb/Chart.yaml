@@ -5,7 +5,7 @@ home: https://github.com/paradedb/helm-charts
 icon: https://raw.githubusercontent.com/paradedb/paradedb/dev/docs/logo/readme.svg
 keywords:
   - paradedb
-  - pg_analytics
+  - pg_lakehouse
   - pg_search
 maintainers:
   - name: ParadeDB
@@ -33,7 +33,7 @@ dependencies:
     # We set the alias to paradedb so resources are named 'paradedb'
     alias: paradedb
     # The version of the Bitnami PostgreSQL chart
-    version: 15.2.5
+    version: 15.5.0
     repository: oci://registry-1.docker.io/bitnamicharts
 
 # This is the version number of the application being deployed. This version number should be
