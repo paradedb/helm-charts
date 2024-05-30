@@ -7,7 +7,7 @@ releases:
   - name: paradedb
     namespace: paradedb
     chart: bitnami/postgresql
-    version: 15.5.1
+    version: 15.5.0
     set:
       - name: image.repository
         value: paradedb/paradedb
