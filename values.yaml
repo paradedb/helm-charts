@@ -16,4 +16,4 @@ auth:
   database: paradedb
 
 # Shared preload libraries (comma-separated list)
-postgresqlSharedPreloadLibraries: "pgaudit,pg_cron,pg_search,pg_lakehouse"
+postgresqlSharedPreloadLibraries: "pgaudit,pg_lakehouse,pg_search"
