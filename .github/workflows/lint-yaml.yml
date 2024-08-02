@@ -7,7 +7,6 @@ name: Lint YAML
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
     paths:
       - "**/*.yml"
       - "**/*.yaml"
@@ -21,7 +20,6 @@ jobs:
   lint-yaml:
     name: Lint YAML Files
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false
 
     steps:
       - name: Checkout Git Repository

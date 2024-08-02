@@ -7,7 +7,6 @@ name: Lint Helm
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
     paths:
       - "charts/paradedb/*"
       - ".github/workflows/lint-helm.yml"
@@ -21,13 +20,12 @@ jobs:
   lint-helm:
     name: Lint Helm Charts
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false
 
     steps:
       - name: Checkout Git Repository
         uses: actions/checkout@v4
 
-      - name: Build Dependencies
+      - name: Build dependencies
         working-directory: charts/paradedb/
         run: helm dep build
 
