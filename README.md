@@ -35,7 +35,7 @@ This repository contains the Helm chart for deploying and managing ParadeDB on K
 
 The steps below assume you have an accessible Kubernetes cluster.
 
-### Install Helm
+### Installing Helm
 
 First, install Helm. You can do so using their installation script:
 
@@ -47,7 +47,7 @@ chmod 700 get_helm.sh
 
 See the [Helm docs](https://helm.sh/docs/intro/install/) for more information.
 
-### Install CloudNativePG Operator
+### Installing CloudNativePG Operator
 
 This chart does not include the Custom Resource Definitions (CRDs) from the CloudNativePG Operator, and it doesn't explicitly depend on it due to Helm's constraints with CRD management. As such, the operator itself is not bundled within this chart.
 
@@ -63,7 +63,7 @@ helm upgrade --install cnpg \
 
 It is also possible to install using the manifest directly. See the operator [installation documentation](https://cloudnative-pg.io/documentation/1.21/installation_upgrade/#installation-on-kubernetes) for more information.
 
-### Install ParadeDB Helm Chart
+### Installing ParadeDB Helm Chart
 
 Once the operator is installed, add the ParadeDB repository to Helm as follows:
 
