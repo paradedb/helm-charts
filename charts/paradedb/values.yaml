@@ -1,19 +1,19 @@
 paradedb:
   image:
     repository: paradedb/paradedb
-    tag: 16-v0.6.0
+    tag: 16-v0.8.6
 
   auth:
-    # username
+    # Username
     username: paradedb
 
     # Password for the user
     # password:
 
-    # existing password secret name
+    # Existing password secret name
     # existingSecret:
 
-    # database name to create
+    # Database name to create
     database: paradedb
 
   # Shared preload libraries (comma-separated list)

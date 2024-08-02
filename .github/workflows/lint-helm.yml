@@ -27,7 +27,7 @@ jobs:
       - name: Checkout Git Repository
         uses: actions/checkout@v4
 
-      - name: Build dependencies
+      - name: Build Dependencies
         working-directory: charts/paradedb/
         run: helm dep build
 
