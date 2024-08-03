@@ -36,7 +36,7 @@ cluster:
   # Cluster name override. It will use the release name otherwise.
   # name: "paradedb"
   # Description for the cluster
-  description: "Cluster to run ParadeDB"
+  description: "ParadeDB CloudNativePG Kubernetes Cluster"
   # Postgres major version
   majorVersion: "16"
   # Override image for the PostgreSQL instance
@@ -59,15 +59,13 @@ cluster:
       sharedBuffers.max: "10000"
       pg_stat_statements.track: all
       auto_explain.log_min_duration: "10s"
-      # Configure pgcron and pg_net
-      pg_net.database_name: paradedb
       cron.database_name: paradedb
     pg_hba:
       - host all all 10.244.0.0/16 md5
     shared_preload_libraries:
       - pgaudit
       - pg_cron
-      - pg_analytics
+      - pg_lakehouse
       - pg_search
 
   # Bootstrap configuration for the database
@@ -78,10 +76,11 @@ cluster:
       # secret:
       #   name: cluster-example-app-user
       postInitApplicationSQL:
-        - CREATE EXTENSION IF NOT EXISTS "pg_analytics" CASCADE;
-        - CREATE EXTENSION IF NOT EXISTS "pg_search" CASCADE;
-        - CREATE EXTENSION IF NOT EXISTS "svector" CASCADE;
-        - CREATE EXTENSION IF NOT EXISTS "vector" CASCADE;
+        - CREATE EXTENSION IF NOT EXISTS "pg_search";
+        - CREATE EXTENSION IF NOT EXISTS "pg_lakehouse";
+        - CREATE EXTENSION IF NOT EXISTS "pg_cron";
+        - CREATE EXTENSION IF NOT EXISTS "vector";
+        - CREATE EXTENSION IF NOT EXISTS "vectorscale";
         - ALTER DATABASE paradedb SET search_path TO public,paradedb;
         - ALTER USER paradedb WITH SUPERUSER;
       postInitTemplateSQL:
