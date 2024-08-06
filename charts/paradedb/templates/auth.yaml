@@ -1,0 +1,46 @@
+{{- if .Values.auth }}
+
+{{- if .Values.auth.appUserCredentials }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Values.auth.appUserCredentials.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+{{ include "cluster.labels" . | indent 4 }}
+type: kubernetes.io/basic-auth
+data:
+  password: {{ .Values.auth.appUserCredentials.password | b64enc }}
+  username: {{ .Values.auth.appUserCredentials.username | b64enc }}
+{{- end }}
+
+{{- if .Values.auth.superUserCredentials }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Values.auth.superUserCredentials.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+{{ include "cluster.labels" . | indent 4 }}
+type: kubernetes.io/basic-auth
+data:
+  password: {{ .Values.auth.superUserCredentials.password | b64enc }}
+  username: {{ .Values.auth.superUserCredentials.username | b64enc }}
+{{- end }}
+
+{{- if .Values.auth.backupCredentials }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Values.auth.backupCredentials.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+{{ include "cluster.labels" . | indent 4 }}
+data:
+  ACCESS_KEY_ID: {{ .Values.auth.backupCredentials.accessKeyId | b64enc }}
+  ACCESS_SECRET_KEY: {{ .Values.auth.backupCredentials.accessSecretKey | b64enc }}
+{{- end }}
+
+{{- end }}
